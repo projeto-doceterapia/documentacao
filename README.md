@@ -19,6 +19,7 @@ Frontend	HTML, CSS, JavaScript, React, Bootstrap
 Backend	Node.js, Java 21, Spring Boot
 Banco de Dados	MySQL
 Infraestrutura	AWS (servidor em nuvem)
+
 🚀 Como Executar o Projeto
 Pré-requisitos
 Node.js instalado
@@ -62,6 +63,7 @@ doce-terapia/
 ├── backend/         # Spring Boot + Node.js
 ├── database/        # Scripts MySQL
 └── docs/            # Documentação
+
 🌐 Deploy
 O sistema está hospedado na AWS, garantindo escalabilidade e alta disponibilidade.
 
