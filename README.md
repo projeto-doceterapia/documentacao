@@ -58,10 +58,11 @@ http://localhost:3000
 📂 Estrutura do Projeto<br>
 Código<br>
 doce-terapia/<br>
-├── frontend/        # React + Bootstrap<br>
-├── backend/         # Spring Boot + Node.js<br>
-├── database/        # Scripts MySQL<br>
-└── docs/            # Documentação<br>
+├── prototipo/ #Prototipo funcional do MVP <br>
+├── front-end/ # React + Bootstrap<br>
+├── back-end/ # Spring Boot + Node.js<br>
+├── banco-de-dados/ # Scripts MySQL<br>
+└── documentacao/ # Documentação<br>
 
 🌐 Deploy<br>
 O sistema está hospedado na AWS, garantindo escalabilidade e alta disponibilidade.
