@@ -1,6 +1,6 @@
 # 10.4 Back-end (API REST)
 
-> Repositório: `back-end` · Pacote raiz: `br.com.doceterapia.api` · Artefato: `br.com.doceterapia:api-doceterapia:0.0.1-SNAPSHOT`
+> Pacote raiz: `br.com.doceterapia.api` · Artefato: `br.com.doceterapia:api-doceterapia:0.0.1-SNAPSHOT`
 
 ## Camadas e responsabilidades
 
@@ -109,7 +109,7 @@ Não existe `@ControllerAdvice`. As exceções usam `@ResponseStatus`, e o corpo
 | `jwt.validity` | `${JWT_VALIDITY:3600}` | Segundos |
 | `springdoc.swagger-ui.with-credentials` | `true` | Envia o cookie pelo Swagger |
 
-Para usar MySQL, sobrescreva `spring.datasource.url=jdbc:mysql://localhost:3306/doce_terapia` e as credenciais **por variáveis de ambiente**. A divisão em perfis `local` e `prod` está planejada (`AGENTS.md`).
+Para usar MySQL, sobrescreva `spring.datasource.url=jdbc:mysql://localhost:3306/doce_terapia` e as credenciais **por variáveis de ambiente**. A divisão em perfis `local` (H2 e valores de desenvolvimento) e `prod` (somente variáveis de ambiente, sem valores padrão) está planejada.
 
 ## Execução (Windows)
 
@@ -125,6 +125,6 @@ $env:JAVA_HOME = "C:\caminho\para\jdk-21"   # obrigatório: o java do PATH pode 
 
 | Tipo | Classes | Cobertura funcional |
 |---|---|---|
-| Unitários de service (JUnit 5 + Mockito) | `AutenticacaoServiceTest`, `UsuarioServiceTest`, `ClienteServiceTest`, `PedidoServiceTest`, `ItemPedidoServiceTest`, `ProdutoServiceTest`, `InsumoServiceTest`, `ProducaoServiceTest`, `PagamentoServiceTest`, `CancelamentoPedidoServiceTest`, `CategoriaProdutoServiceTest`, `CategoriaInsumoServiceTest` | CRUD, transições de estado, conflitos e validações. O README cita 98 testes |
+| Unitários de service (JUnit 5 + Mockito) | `AutenticacaoServiceTest`, `UsuarioServiceTest`, `ClienteServiceTest`, `PedidoServiceTest`, `ItemPedidoServiceTest`, `ProdutoServiceTest`, `InsumoServiceTest`, `ProducaoServiceTest`, `PagamentoServiceTest`, `CancelamentoPedidoServiceTest`, `CategoriaProdutoServiceTest`, `CategoriaInsumoServiceTest` | CRUD, transições de estado, conflitos e validações. Cerca de 98 testes no total |
 | Contexto | `ApiDoceterapiaApplicationTests` | Sobe o contexto Spring |
 | Ausentes | `@WebMvcTest`, `@DataJpaTest`, ArchUnit, Database Rider | As dependências estão no `pom.xml`, mas não são usadas |

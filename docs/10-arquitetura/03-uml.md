@@ -1,6 +1,6 @@
 # 10.3 Diagramas UML
 
-Os diagramas foram gerados a partir do código atual (`back-end/src/main/java/br/com/doceterapia/api`, `front-end/src`). Os diagramas de estado estão em [09 - Regras de negócio](../09-regras-de-negocio.md#95-máquinas-de-estado), e os de componentes e implantação estão no [C4 Model](02-c4-model.md).
+Os diagramas representam o código atual da API e da interface. Os diagramas de estado estão em [09 - Regras de negócio](../09-regras-de-negocio.md#95-máquinas-de-estado), e os de componentes e implantação estão no [C4 Model](02-c4-model.md).
 
 ## 10.3.1 Diagrama de casos de uso
 
@@ -53,7 +53,7 @@ flowchart LR
 | UC13 | ✅ | `VisaoGeral.jsx` |
 | UC14 | 🟡 derivada dos pedidos na Topbar. `/notificacoes` existe | `AppTopbar.jsx` |
 | UC15 | ✅ | `AppTopbar.jsx` |
-| UC16 | 🧪 POC separada | `estoque-wpp` |
+| UC16 | 🧪 prova de conceito separada | Serviço de WhatsApp ([10.8](08-integracoes.md)) |
 
 ### Especificação resumida – UC02 Registrar orçamento
 
@@ -221,8 +221,6 @@ Todas ficam em `enums/` e são persistidas como `@Enumerated(EnumType.STRING)`.
 | `ClassificacaoCliente` | `PADRAO`, `FREQUENTE`, `ALTO_VOLUME` | `Cliente.classificacaoCliente` |
 | `StatusAtivo` | `ATIVO`, `INATIVO` | `Cliente`, `Produto`, `Insumo` |
 | `UnidadeMedida` | `KG`, `G`, `L`, `ML`, `UNIDADE` | `Produto`, `Insumo`, `ProdutoInsumo` |
-
-> O `DIAGRAMA_CLASSES.md` da pasta do grupo mostra uma versão anterior dos enums (por exemplo, `StatusPedido` com PENDENTE/CONFIRMADO/PRODUCAO/FINALIZADO e `UnidadeMedida` com GRAMAS/LITROS). Os diagramas acima refletem o código atual.
 
 ## 10.3.3 Diagrama de pacotes (back-end)
 

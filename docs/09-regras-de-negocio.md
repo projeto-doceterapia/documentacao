@@ -1,10 +1,10 @@
 # 9. Artefatos de regra de negócio
 
-> Fontes: `Cardápio de bolos ... .pdf`, `_Portfólio Doceterapia (4).pdf`, `Anotações - Beneficiário.txt`, `Processos do Beneficiário - BPMN.drawio`, `ATIVIDADE_02_MP_GRUPO_09.docx`, `ATIVIDADE_06_MP_GRUPO_09.docx`, `Diagrama Processo Beneficiaria Automatizado - Grupo 9 (1).svg`, `Especificacao_metricas.txt`, `UX - Aula 4/5`, `SIS - PROTO-PERSONA e JORNADA DO CONCORRENTE.pptx`, `ATIVIDADE_03_PF_GRUPO_09.docx`. O comportamento implementado foi verificado em `back-end/src/main/java/br/com/doceterapia/api/service/*` e `front-end/src/**`.
+Esta seção descreve as regras que o sistema aplica, os processos da confeitaria antes e depois do sistema, os ciclos de vida de pedido, produção e pagamento e os indicadores. A coluna **Implementação** aponta onde cada regra fica no código, que está descrito em [10 - Arquitetura](10-arquitetura/README.md).
 
 ## 9.1 Catálogo e preços praticados
 
-Cardápio vigente da beneficiária. Ele serve de referência para o cadastro de produtos e categorias.
+Cardápio atual da confeitaria, que serve de base para o cadastro de produtos e categorias.
 
 | Categoria | Item | Preço |
 |---|---|---|
@@ -24,7 +24,7 @@ Regra comercial impressa no cardápio: **"Pedidos somente com sinal de 50% no at
 
 | ID | Regra | Origem | Implementação |
 |---|---|---|---|
-| RN01 | O pedido nasce como **orçamento** e só vira pedido confirmado depois do sinal | Beneficiária e cardápio | `TipoPedido.ORCAMENTO` → `PEDIDO_CONFIRMADO`. `Pedido.jsx` grava `ORCAMENTO` |
+| RN01 | O pedido nasce como **orçamento** e só vira pedido confirmado depois do sinal | Confeiteira e cardápio | `TipoPedido.ORCAMENTO` → `PEDIDO_CONFIRMADO`. `Pedido.jsx` grava `ORCAMENTO` |
 | RN02 | **Sinal de 50%** na confirmação e 50% restantes na retirada ou entrega | Cardápio | `PagamentoService.criar`: `valorSinal = valorRestante = valorTotal × 0,5` |
 | RN03 | O restante só pode ser registrado depois do sinal | Derivada da RN02 | `registrarRestante` lança "Sinal deve ser pago antes do restante" |
 | RN04 | O sinal não pode ser registrado duas vezes | Integridade | `registrarSinal` lança "Sinal já foi pago para este pagamento" |
@@ -32,12 +32,12 @@ Regra comercial impressa no cardápio: **"Pedidos somente com sinal de 50% no at
 | RN06 | O status do pedido segue um fluxo fixo e pode ser cancelado em qualquer etapa antes da entrega | Processo | `PedidoService.TRANSICOES_VALIDAS` (ver 9.5.1) |
 | RN07 | Entrega exige endereço. Retirada no local, não | Processo | `PedidoService`: "Endereço de entrega é obrigatório quando a forma de entrega é ENTREGA" |
 | RN08 | A data de entrega é obrigatória e não pode estar no passado | Processo | `PedidoRequestDTO`: `@NotNull`, `@FutureOrPresent` |
-| RN09 | O cancelamento registra o motivo (`CLIENTE_DESISTIU`, `ERRO_PEDIDO`, `FALTA_INSUMO`, `OUTRO`) e o retorno ao cliente (`CREDITO_CLIENTE`, `DEVOLUCAO`, `SEM_DEVOLUCAO`) | Beneficiária (crédito ou reaproveitamento) | `CancelamentoPedidoService` também muda o pedido para `CANCELADO` |
+| RN09 | O cancelamento registra o motivo (`CLIENTE_DESISTIU`, `ERRO_PEDIDO`, `FALTA_INSUMO`, `OUTRO`) e o retorno ao cliente (`CREDITO_CLIENTE`, `DEVOLUCAO`, `SEM_DEVOLUCAO`) | Confeiteira (crédito ou reaproveitamento) | `CancelamentoPedidoService` também muda o pedido para `CANCELADO` |
 | RN10 | Cada pedido tem no máximo um pagamento, uma produção e um cancelamento | Modelo | `@OneToOne` com `unique` e as exceções `PedidoAlreadyHasProducaoException` e `CancelamentoAlreadyExistsException` |
 | RN11 | A produção é linear e, depois de finalizada, não pode ser alterada | Processo | `ProducaoService` (ver 9.5.2) |
 | RN12 | O item do pedido "congela" o preço e o custo do produto no momento da venda | Precificação | `ItemPedidoMapper`: `precoOriginalProduto` e `custoEstimadoItem` |
 | RN13 | O valor do item é `valorUnitario × quantidade` e a margem do item é `valorTotal − custoEstimadoItem` | Precificação | `ItemPedidoMapper` e `ItemPedidoService` |
-| RN14 | O valor unitário pode ser diferente do preço de tabela (negociação) | Beneficiária | `valorUnitario` × `precoOriginalProduto` |
+| RN14 | O valor unitário pode ser diferente do preço de tabela (negociação) | Confeiteira | `valorUnitario` × `precoOriginalProduto` |
 | RN15 | A ficha técnica do produto lista os insumos e as quantidades usadas. O mesmo insumo não se repete no produto | Receitas | `ProdutoInsumoService` lança `ProdutoInsumoDuplicateException` |
 | RN16 | Um insumo fica "em atenção" quando `quantidadeAtual ≤ quantidadeMinima` | Estoque | `VisaoGeral.jsx` e `EstoqueAtencao.jsx` |
 | RN17 | O farol da agenda tem limites crescentes: `verde < amarelo < vermelho`. Existe uma única configuração | Capacidade | `ConfiguracaoFarolAgendaService` |
@@ -45,13 +45,13 @@ Regra comercial impressa no cardápio: **"Pedidos somente com sinal de 50% no at
 | RN19 | O telefone do cliente é único | Cadastro | `TelefoneAlreadyExistsException` |
 | RN20 | Uma categoria com produtos ou insumos vinculados não pode ser excluída. O nome da categoria é único | Cadastro | `CategoriaProdutoService` e `CategoriaInsumoService` |
 | RN21 | O cliente é classificado como `PADRAO`, `FREQUENTE` ou `ALTO_VOLUME`, e o tipo de pessoa como `FISICA` ou `JURIDICA` | Fidelização (empresas e grandes volumes) | `Cliente` e filtros de `Clientes.jsx` |
-| RN22 | Não existe tela de autocadastro. A conta da usuária é criada pela equipe | Arquitetura da Informação (Aula 4) | `POST /usuarios` sem tela no front |
+| RN22 | Não existe tela de autocadastro. A conta da usuária é criada pela equipe | Arquitetura da informação | `POST /usuarios` sem tela no front |
 | RN23 | *(planejada)* O pedido não pode ser confirmado se faltarem insumos | Critério de aceite 03 | Não implementada |
 | RN24 | *(planejada)* A produção dá baixa nos insumos do estoque | BPMN TO-BE | Não implementada |
 
 ## 9.3 Processo AS-IS (BPMN)
 
-Processo atual de pedido e produção de doces, modelado pelo grupo em BPMN (`Processos do Beneficiário - BPMN.drawio`) e reproduzido em Mermaid. As raias aparecem como subgrafos.
+Processo de pedido e produção como acontecia antes do sistema, modelado em BPMN. As raias aparecem como blocos.
 
 ```mermaid
 flowchart LR
@@ -98,7 +98,7 @@ flowchart LR
 
 ## 9.4 Processo TO-BE (com a solução)
 
-Processo automatizado desenhado pelo grupo (`Diagrama Processo Beneficiaria Automatizado - Grupo 9.svg`), baseado na "Forma 1 – Formulário inteligente de pedido/orçamento" da Atividade 06 de Modelagem.
+Processo com o sistema, baseado em um formulário inteligente de pedido e orçamento: o cliente informa o pedido, e o sistema verifica data e capacidade, calcula o valor e o sinal e encaminha para aprovação da confeiteira.
 
 ```mermaid
 flowchart LR
@@ -121,7 +121,7 @@ flowchart LR
         s12["Abater ingredientes<br/>do estoque"]
         s13["Alimentar dashboard<br/>com indicadores"]
     end
-    subgraph CONF["Confeitaria (beneficiária)"]
+    subgraph CONF["Confeiteira"]
         direction TB
         b1["Visualizar pedido pendente"] --> b2{"Pedido aprovado?"}
         b2 -- Não --> b3["Justificar recusa"]
@@ -139,7 +139,7 @@ flowchart LR
 
 **Ganhos em relação ao AS-IS:** a capacidade e a data são verificadas antes de aceitar o pedido, o preço e o sinal são calculados na hora do orçamento, o estoque é abatido automaticamente e os indicadores são atualizados.
 
-**Situação atual (out/2026):** no sistema, o orçamento, o cálculo do sinal, o farol de capacidade e os indicadores estão implementados. O formulário para o cliente, as notificações automáticas pelo WhatsApp e a baixa de estoque continuam pendentes (ver [11 - Product backlog](11-product-backlog.md)).
+**Situação atual:** no sistema, o orçamento, o cálculo do sinal, o farol de capacidade e os indicadores estão implementados. O formulário para o cliente, as notificações automáticas pelo WhatsApp e a baixa de estoque continuam pendentes (ver [11 - Product backlog](11-product-backlog.md)).
 
 ## 9.5 Máquinas de estado
 
@@ -274,9 +274,9 @@ flowchart LR
 
 ### Por que essas métricas (e não métricas de vaidade)
 
-Resumo do documento `Especificacao_metricas.txt`. **Lucro**, **custo** e **margem** mostram se o negócio é sustentável e orientam a precificação, que é a principal dor da beneficiária. **Dias lotados** e **pedidos por dia** medem a capacidade produtiva e o risco de atraso. **Esperando fazer**, **em produção**, **aguardando entrega** e **aguardando sinal** mostram a carga operacional e o fluxo de caixa. **Top 3 produtos** orienta as compras e o catálogo. **Faturamento × custo × lucro** evita decisões baseadas só no faturamento bruto.
+**Lucro**, **custo** e **margem** mostram se o negócio é sustentável e orientam a precificação, que é a principal dor da confeiteira. **Dias lotados** e **pedidos por dia** medem a capacidade produtiva e o risco de atraso. **Esperando fazer**, **em produção**, **aguardando entrega** e **aguardando sinal** mostram a carga operacional e o fluxo de caixa. **Top 3 produtos** orienta as compras e o catálogo. **Faturamento × custo × lucro** evita decisões baseadas só no faturamento bruto.
 
-KPIs definidos na disciplina de UX (Aula 5): controle de lucro (investido × obtido por período) e quantidade de pedidos (volume e variação). As métricas de apoio são dias com sobrecarga, pedidos com falta de ingredientes, pedido mais requisitado e ingredientes perto do mínimo.
+KPIs principais do sistema: controle de lucro (investido × obtido por período) e quantidade de pedidos (volume e variação). As métricas de apoio são dias com sobrecarga, pedidos com falta de ingredientes, pedido mais requisitado e ingredientes perto do mínimo.
 
 ## 9.8 Proto-personas e jornada do concorrente
 
@@ -289,7 +289,7 @@ Jornadas analisadas: **Sortly** (cadastro → cobrança → configuração → u
 
 ## 9.9 Arquitetura da informação
 
-Definida na Aula 4 de UX e refinada no código.
+Organização das telas como a confeiteira as encontra no menu.
 
 ```mermaid
 flowchart TB
@@ -310,4 +310,4 @@ flowchart TB
 
 ## 9.10 Fidelização
 
-Na Atividade 03 o grupo estudou três programas de fidelidade: iFood Fidelidade (metas de consumo), Shell Box/Stix (ecossistema de pontos) e Sephora Beauty Insider (níveis Bronze, Prata e Ouro). As ideias aplicáveis à Doceterapia são "compre 4 vezes e ganhe 20 docinhos", parcerias locais e níveis de cliente. No sistema, essa linha aparece hoje como `ClassificacaoCliente` (`PADRAO`, `FREQUENTE`, `ALTO_VOLUME`). O programa de recompensas não foi implementado.
+Para orientar a fidelização, foram estudados três programas de fidelidade: iFood Fidelidade (metas de consumo), Shell Box/Stix (ecossistema de pontos) e Sephora Beauty Insider (níveis Bronze, Prata e Ouro). As ideias aplicáveis à Doceterapia são "compre 4 vezes e ganhe 20 docinhos", parcerias locais e níveis de cliente. No sistema, essa linha aparece hoje como `ClassificacaoCliente` (`PADRAO`, `FREQUENTE`, `ALTO_VOLUME`). O programa de recompensas não foi implementado.

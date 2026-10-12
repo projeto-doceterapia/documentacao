@@ -20,7 +20,7 @@ flowchart LR
 ```mermaid
 flowchart TB
     cliente["<b>Cliente final</b><br/>[Person]<br/>Pessoa física ou empresa que<br/>encomenda bolos e doces"]:::extperson
-    confeiteira["<b>Confeiteira (beneficiária)</b><br/>[Person]<br/>Registra pedidos e acompanha<br/>produção, estoque e lucro"]:::person
+    confeiteira["<b>Confeiteira</b><br/>[Person]<br/>Registra pedidos e acompanha<br/>produção, estoque e lucro"]:::person
     doce["<b>Sistema Doceterapia</b><br/>[Software System]<br/>Pedidos, agenda, clientes, produtos,<br/>insumos, produção, pagamentos e métricas"]:::system
     whatsapp["<b>WhatsApp / Twilio</b><br/>[Software System]<br/>Mensageria"]:::external
     gemini["<b>Google Gemini</b><br/>[Software System]<br/>LLM multimodal"]:::external
@@ -166,11 +166,11 @@ flowchart TB
 
 ## Implantação
 
-Baseado no diagrama da equipe (`Documentação/c4-model-deployment.drawio`): toda a solução roda no computador da beneficiária.
+Toda a solução roda no computador da confeiteira.
 
 ```mermaid
 flowchart TB
-    subgraph pc["Computador da Beneficiária [Deployment Node: Microsoft Windows 11]"]
+    subgraph pc["Computador da Confeiteira [Deployment Node: Microsoft Windows 11]"]
         direction TB
         subgraph br["Navegador [Chrome / Edge]"]
             spa["<b>SPA React</b><br/>[Container: JavaScript]"]:::container
@@ -205,7 +205,7 @@ flowchart TB
     classDef external fill:#999,stroke:#6b6b6b,color:#fff
 ```
 
-> Para receber webhooks do Twilio em uma máquina local, a porta 3000 precisa ser exposta publicamente (por exemplo, com um túnel). Esse detalhe não aparece no diagrama original.
+> Para receber webhooks do Twilio em uma máquina local, a porta 3000 precisa ser exposta publicamente (por exemplo, com um túnel). O diagrama mostra isso como um túnel HTTPS.
 
 ## Diagrama dinâmico – Registrar orçamento
 

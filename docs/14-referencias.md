@@ -1,10 +1,10 @@
 # 14. Referências bibliográficas
 
-Formato ABNT NBR 6023:2018. As referências digitais foram acessadas em 09 out. 2026. As seções 14.2 a 14.5 reúnem as obras e documentações que fundamentam os métodos e as tecnologias usados no projeto (Scrum, GTD, INVEST/SMART, Lean UX, Crazy 8s, BPMN, UML, C4, hexagonal e a stack).
+Formato ABNT NBR 6023:2018. As seções 14.2 a 14.5 reúnem as obras e documentações que fundamentam os métodos e as tecnologias usados no sistema (Scrum, GTD, INVEST/SMART, Lean UX, Crazy 8s, BPMN, UML, C4, hexagonal e a stack).
 
 ## 14.1 Mercado e contexto do negócio
 
-Fontes do desk research do Relatório Elevator Pitch. O relatório cita os veículos e as instituições, mas não registra título, data nem URL das matérias (com exceção da Doce Rede). Por isso, cada referência abaixo traz apenas o dado usado e o veículo que o divulgou, sem completar informações que não estão no relatório.
+Dados de mercado usados na [justificativa](03-justificativa.md#34-o-cenário-do-setor). Para cada dado, a tabela informa a instituição que o produziu e o veículo em que foi divulgado.
 
 | Dado utilizado | Instituição de origem | Veículo citado |
 |---|---|---|
@@ -20,7 +20,7 @@ Fontes do desk research do Relatório Elevator Pitch. O relatório cita os veíc
 
 DOCE REDE. [Motivos de falência de confeitaria]. Disponível em: http://www.docerede.com.br/motivos-de-falencia-confeitaria. Acesso em: 09 out. 2026. (Título atribuído a partir da URL.)
 
-Outros veículos consultados no desk research: InvestSP, Giro News.
+Outros veículos consultados: InvestSP e Giro News.
 
 ## 14.2 Gestão de projetos e métodos ágeis
 
@@ -85,17 +85,3 @@ META. **WhatsApp Business Platform pricing**. Disponível em: https://developers
 WAHA. **WhatsApp HTTP API – engines**. Disponível em: https://waha.devlike.pro/docs/engines. Acesso em: 09 out. 2026.
 
 CONVENTIONAL COMMITS. **Conventional Commits 1.0.0**. Disponível em: https://www.conventionalcommits.org/pt-br/v1.0.0/. Acesso em: 09 out. 2026.
-
-## 14.6 Documentos internos do projeto
-
-GRUPO 9 – 2SIS. **Termo de Abertura do Projeto (TAP)**: gerenciamento de estoque e pedidos da Doceterapia. Versão 1.0. São Paulo: SPTech, 11 ago. 2026.
-
-GRUPO 9 – 2SIS. **Documento de condução**: objetivos e regras para condução do projeto em grupo. Versão v04. São Paulo: SPTech, 31 mar. 2026.
-
-GRUPO 9 – 2SIS. **Relatório de visita técnica à beneficiária**. São Paulo: SPTech, 12 abr. 2026.
-
-GRUPO 9 – 2SIS. **Status report semanal**: semanas 1 a 14. São Paulo: SPTech, 2026.
-
-GRUPO 9 – 2SIS. **Teste de usabilidade – entregável PI**. São Paulo: SPTech, 2026.
-
-GRUPO 9 – 2SIS. **PRD – Assistente de atualização de estoque via WhatsApp**. Versão 0.1. São Paulo, 05 out. 2026.

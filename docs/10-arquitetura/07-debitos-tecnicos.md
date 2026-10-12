@@ -1,6 +1,6 @@
 # 10.7 Débitos técnicos e riscos
 
-Levantamento feito na leitura do código em out/2026. Prioridade: **Alta** (segurança ou integridade), **Média** (comportamento incorreto ou retrabalho), **Baixa** (padronização).
+Problemas encontrados na revisão do código atual. Prioridade: **Alta** (segurança ou integridade), **Média** (comportamento incorreto ou retrabalho), **Baixa** (padronização).
 
 | # | Débito | Onde | Impacto | Prioridade |
 |---|---|---|---|---|
@@ -63,4 +63,4 @@ flowchart LR
     F1 --> F2 --> F3 --> F4
 ```
 
-> As correções devem seguir o fluxo do `AGENTS.md`: abrir uma change no OpenSpec, criar uma branch por demanda e rodar os gates de cada repositório.
+> Cada correção deve seguir o fluxo de trabalho do time: especificação da mudança, branch por demanda e verificação (build e testes) antes do merge.

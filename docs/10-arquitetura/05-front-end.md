@@ -1,6 +1,6 @@
 # 10.5 Front-end (SPA React)
 
-> Repositório: `front-end` · Pacote: `telas-core` · React 19 + Vite 8, JavaScript (JSX), ESM
+> Pacote `telas-core` · React 19 + Vite 8, JavaScript (JSX), ESM
 
 ## Estrutura
 

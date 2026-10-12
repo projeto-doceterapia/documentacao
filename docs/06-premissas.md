@@ -1,8 +1,6 @@
 # 6. Premissas
 
-> Fontes: `TAP2026.pdf`, `OFICIAL_DOCETERAPIA.docx`, `RELATORIO_VISITA_TECNICA.docx`.
-
-Premissas são condições que o projeto assume como verdadeiras. Se uma delas deixar de valer, o plano precisa ser revisto.
+Premissas são condições que o sistema assume como verdadeiras. Se uma delas deixar de valer, o desenho da solução precisa ser revisto.
 
 | ID | Premissa | Impacto se não se confirmar |
 |---|---|---|
@@ -12,6 +10,6 @@ Premissas são condições que o projeto assume como verdadeiras. Se uma delas d
 | P04 | Os pedidos continuam chegando pelo WhatsApp, que segue como canal principal. O sistema é apoio organizacional e funciona em paralelo. | Seria preciso redesenhar a captação de pedidos |
 | P05 | A usuária registra os dados manualmente e de forma correta. A confiabilidade das métricas depende disso. | Estoque e métricas inconsistentes |
 | P06 | A solução precisa ser simples e fácil de usar, sem termos técnicos. | Baixa adoção |
-| P07 | A beneficiária fica disponível para entrevistas, visita técnica e validação ao longo do semestre. | Requisitos não validados |
+| P07 | A confeiteira fica disponível para validar as telas e os fluxos durante o desenvolvimento. | Requisitos não validados |
 | P08 | A operação tem uma única usuária administradora. | Seria necessário controle de perfis e permissões |
-| P09 | O volume é baixo, na ordem de dezenas de mensagens e pedidos por dia (cerca de 50 mensagens por dia na análise de gaps da POC). | Infraestrutura de fila e cache seria necessária |
+| P09 | O volume é baixo, na ordem de dezenas de mensagens e pedidos por dia (cerca de 50 mensagens por dia). | Infraestrutura de fila e cache seria necessária |

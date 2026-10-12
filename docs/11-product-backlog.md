@@ -1,11 +1,9 @@
 # 11. Product backlog
 
-> Fontes: `Sprints/Livro.xlsx` (backlog inicial de entregáveis e lista de requisitos priorizada), requisitos e histórias ([05](05-requisitos.md)), `Status Report` (semanas 1–14), cronograma de 6 sprints, análise de gaps e PRD do assistente WhatsApp, além do estado do código em out/2026.
->
-> O backlog original do grupo ficava no **Planner** e na planilha `Livro.xlsx`, que tem só a Sprint 1 preenchida. Este documento consolida o backlog do produto a partir de todas as fontes. A situação de cada item foi conferida no código.
+O backlog reúne tudo o que o sistema precisa entregar: histórias e requisitos ([05](05-requisitos.md)), melhorias do teste de usabilidade, débitos técnicos ([10.7](10-arquitetura/07-debitos-tecnicos.md)) e integrações planejadas ([10.8](10-arquitetura/08-integracoes.md)). A situação de cada item corresponde ao estado atual do código.
 
 Prioridade (MoSCoW): **M** = Must, **S** = Should, **C** = Could, **W** = Won't (nesta versão).
-Situação: ✅ concluído · 🟡 parcial · ⛔ a fazer · 🧪 POC.
+Situação: ✅ concluído · 🟡 parcial · ⛔ a fazer · 🧪 prova de conceito.
 
 ## 11.1 Épicos
 
@@ -66,7 +64,7 @@ mindmap
 | PB09 | EP03 | CRUD de clientes, com telefone único e histórico de pedidos | RF04 | M | 3 | 🟡 sem exclusão no front |
 | PB10 | EP04 | Catálogo de produtos por categoria | Escopo | M | 3 | ✅ |
 | PB11 | EP04 | Ficha técnica (insumos por produto) editável no front | RN15 | S | 5 | 🟡 só leitura no front |
-| PB12 | EP04 | Calcular custo estimado e preço sugerido a partir da ficha técnica | Principal dor da beneficiária | M | 8 | ⛔ |
+| PB12 | EP04 | Calcular custo estimado e preço sugerido a partir da ficha técnica | Principal dor da confeiteira | M | 8 | ⛔ |
 | PB13 | EP05 | Tela de Estoque (CRUD de insumos e categorias) | US03, RF05 | M | 5 | ⛔ |
 | PB14 | EP05 | Alerta de estoque baixo (Visão Geral e notificação `ESTOQUE_BAIXO`) | US03, RF07 | M | 3 | 🟡 |
 | PB15 | EP05 | Baixa automática de insumos ao iniciar a produção | RF06, RN24 | S | 8 | ⛔ |
@@ -79,8 +77,8 @@ mindmap
 | PB22 | EP08 | Notificações na topbar | UC14 | S | 3 | ✅ |
 | PB23 | EP08 | Geração automática de notificações (`@Scheduled`) | G7–G9 | S | 5 | ⛔ |
 | PB24 | EP08 | Entrada de estoque por foto da nota fiscal | CA01, CA02 | S | 13 | 🧪 |
-| PB25 | EP08 | Assistente de estoque no WhatsApp com confirmação (PRD RF-01 a RF-23) | PRD | C | 21 | ⛔ |
-| PB26 | EP08 | Envio de alertas pelo WhatsApp | TAP | C | 8 | ⛔ |
+| PB25 | EP08 | Assistente de estoque no WhatsApp com confirmação | Arquitetura alvo da integração | C | 21 | ⛔ |
+| PB26 | EP08 | Envio de alertas pelo WhatsApp | Escopo | C | 8 | ⛔ |
 | PB27 | EP09 | Login e logout com JWT em cookie | RNF06 | M | 5 | ✅ API · 🟡 front |
 | PB28 | EP09 | Proteger as rotas de domínio e separar perfis `local` e `prod` | D01, D02 | M | 3 | ⛔ |
 | PB29 | EP10 | Aumentar e reduzir fonte | Visita técnica | M | 2 | ✅ |
@@ -89,21 +87,10 @@ mindmap
 | PB32 | — | Log de auditoria de pedidos | RF11 | C | 5 | ⛔ |
 | PB33 | — | Alinhar `scriptv4.sql`, `.mwb` e entidades JPA | D10 | M | 5 | ⛔ |
 | PB34 | — | Testes no front-end (Vitest) e de controller e repositório no back-end | D14 | S | 8 | ⛔ |
-| PB35 | — | Programa de fidelidade (recompensas) | Atividade 03 | W | — | — |
-| PB36 | — | Funil de vendas (Pipefy) | Semana 5 | W | — | Descartado |
+| PB35 | — | Programa de fidelidade (recompensas) | Estudo de fidelização | W | — | — |
+| PB36 | — | Funil de vendas (Pipefy) | Alinhamento com a confeiteira | W | — | Descartado |
 
-## 11.3 Backlog de entregáveis acadêmicos
-
-| Sprint | Entregáveis | Situação |
-|---|---|---|
-| 1 | Modelagem de processos (BPMN AS-IS), proto-persona, jornada do usuário, wireframe, diagrama macro do processo, Elevator Pitch, Arquitetura da Informação, Crazy 8s, ODS | ✅ |
-| 2 | Métricas e KPIs, histórias de usuário, RF/RNF, modelo de BD v2, protótipo de alta fidelidade, visita técnica, teste de usabilidade, Gantt | ✅ |
-| 3 | Mapeamento de endpoints, modelagem v4, BPMN TO-BE, especificação de métricas, árvore de decisão do bot, testes de service, tela de Login | ✅ |
-| 4 | TAP, EAP, casos de uso, 3 telas core integradas, arquitetura hexagonal da POC, critérios de aceitação, métricas de qualidade, diagrama de classes | ✅ |
-| 5 | Diagramas de sequência, contexto, contêiner e implantação, consultoria cruzada, 2 novas telas, integração da POC | 🟡 |
-| 6 | Homologação, manual do usuário, relatório final e apresentação (até 08/12/2026) | ⛔ |
-
-## 11.4 Ordem sugerida para a Sprint 6
+## 11.3 Ordem sugerida para as próximas entregas
 
 ```mermaid
 flowchart LR
@@ -113,5 +100,5 @@ flowchart LR
     D --> E["PB12 Preço<br/>sugerido"]
     E --> F["PB15/PB16<br/>Baixa e<br/>viabilidade"]
     F --> G["PB34 Testes"]
-    G --> H["Homologação<br/>com a beneficiária"]
+    G --> H["Homologação<br/>com a confeiteira"]
 ```

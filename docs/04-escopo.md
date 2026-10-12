@@ -1,36 +1,32 @@
 # 4. Escopo
 
-> Fontes: `TAP2026.pdf`, `OFICIAL_DOCETERAPIA.docx`, `EAP Doceterapia.pdf`, `MATRIZ_DEPENDENCIA.xlsx`, `Status Report - Grupo 9 2SIS 2026.pptx`, código dos repositórios `front-end/` e `back-end/`.
-
 ## 4.1 Dentro do escopo
 
-| Módulo | Funcionalidades | Situação no código (out/2026) |
+| Módulo | Funcionalidades | Situação atual |
 |---|---|---|
-| Gestão de pedidos | Registro manual do pedido vindo do WhatsApp, associação ao cliente, itens, entrega ou retirada, data de entrega, observações, edição e exclusão | Back-end completo (`/pedidos`, `/itens-pedido`). Front-end registra orçamentos em 3 etapas. A edição no front ainda não tem ação |
-| Agenda | Pedidos por data, farol de ocupação (verde/amarelo/vermelho) configurável, identificação de dias com alta demanda | Implementado (`Agenda.jsx` e `/configuracao-farol`) |
-| Clientes | Cadastro (nome, telefone, endereço, pessoa física ou jurídica, classificação) e histórico de pedidos | Implementado (`Clientes.jsx` e `/clientes`) |
-| Produtos e ficha técnica | Catálogo por categoria, preço atual e sugerido, custo, margem e composição de insumos | Implementado (`Produtos.jsx`, `/produtos`, `/produtos/{id}/insumos`) |
-| Estoque (insumos) | CRUD de insumos e categorias, quantidade mínima e alerta de estoque baixo | Back-end implementado (`/insumos`). **Não há tela de Estoque no front-end** (o menu existe sem tela) |
-| Entrada de estoque por nota fiscal | Foto da nota fiscal pelo WhatsApp, leitura por IA e atualização automática | POC separada (`estoque-wpp`, Twilio + Gemini) e PRD de evolução. Ainda não integrada ao sistema |
-| Produção | Fila de produção por prazo e status | Implementado (`Producao.jsx`, `/producoes`) |
-| Pagamentos | Sinal de 50%, restante, forma de pagamento e status | Back-end implementado (`/pagamentos`). O front-end exibe status |
-| Cancelamentos | Motivo, tipo de retorno (crédito, devolução, sem devolução) e valor | Back-end implementado (`/cancelamentos`) |
-| Métricas (Visão Geral) | Lucro, custo, margem, dias lotados, pedidos por status, pedidos por dia, top 3 produtos, faturamento × custo × lucro | Implementado (`VisaoGeral.jsx`) |
-| Notificações | Alertas para a usuária (estoque baixo, pedido próximo da entrega, pagamento pendente, dia lotado, atraso) | Back-end com CRUD (`/notificacoes`). A topbar do front-end gera avisos a partir dos pedidos. O envio por WhatsApp está planejado |
-| Busca | Pedidos, clientes e produtos | Busca local nas telas de Produtos, Clientes e Histórico |
-| Assistente (chatbot) | Chatbot 24h de ajuda ao uso | Árvore de decisão desenhada (Botpress). Não implementado |
-| Acessibilidade | Aumento e redução de fonte, navegação por teclado, ARIA | Implementado (`AppTopbar.jsx`) |
+| Gestão de pedidos | Registro manual do pedido vindo do WhatsApp, associação ao cliente, itens, entrega ou retirada, data de entrega, observações, edição e exclusão | A API está completa. A interface registra orçamentos em 3 etapas. A edição pela interface ainda não funciona |
+| Agenda | Pedidos por data, farol de ocupação configurável (verde, amarelo, vermelho), identificação de dias com alta demanda | Implementado |
+| Clientes | Cadastro (nome, telefone, endereço, pessoa física ou jurídica, classificação) e histórico de pedidos | Implementado |
+| Produtos e ficha técnica | Catálogo por categoria, preço atual e sugerido, custo, margem e composição de insumos | Implementado |
+| Estoque (insumos) | Cadastro de insumos e categorias, quantidade mínima e alerta de estoque baixo | Implementado na API. **A interface ainda não tem a tela de Estoque**: o item aparece no menu, mas não abre tela própria |
+| Entrada de estoque por nota fiscal | Foto da nota fiscal pelo WhatsApp, leitura por IA e atualização automática | Prova de conceito separada (Twilio + Gemini), ainda não integrada ao sistema |
+| Produção | Fila de produção por prazo e status | Implementado |
+| Pagamentos | Sinal de 50%, restante, forma de pagamento e status | A API está completa. A interface só exibe o status |
+| Cancelamentos | Motivo, tipo de retorno (crédito, devolução, sem devolução) e valor | Implementado na API |
+| Indicadores (Visão Geral) | Lucro, custo, margem, dias lotados, pedidos por status, pedidos por dia, 3 produtos mais pedidos, faturamento × custo × lucro | Implementado |
+| Notificações | Alertas para a usuária (estoque baixo, pedido próximo da entrega, pagamento pendente, dia lotado, atraso) | A API tem o cadastro de notificações, e a barra superior da interface gera avisos a partir dos pedidos. O envio pelo WhatsApp é planejado |
+| Busca | Pedidos, clientes e produtos | Busca e filtros nas telas de Produtos, Clientes, Produção e Histórico |
+| Assistente de ajuda | Chatbot 24h que orienta o uso do sistema | Árvore de decisão desenhada, ainda não implementada |
+| Acessibilidade | Aumento e redução da fonte, navegação por teclado, ARIA | Implementado |
 
 ## 4.2 Fora do escopo
 
-- Compras automáticas ou qualquer ação ativa no mundo externo. O sistema não substitui a produção nem as compras reais (TAP, restrições).
-- Substituir o WhatsApp como canal de vendas. Ele continua sendo o canal principal.
-- Funil de vendas e captação de clientes (Pipefy). Foi descartado na Semana 5 porque a beneficiária não quer mais clientes, só fidelizar os atuais.
-- Loja virtual, pagamento online ou emissão fiscal.
-- Múltiplas empresas ou usuários com perfis diferentes. O sistema tem uma única usuária administradora.
-- Aplicativo mobile nativo.
-
-> **Divergência entre fontes:** o TAP define o acesso "exclusivamente via navegador de computador", enquanto o documento oficial e o RNF02 citam celular e computador. Os critérios de aceite resolvem a diferença exigindo interface responsiva entre 390 e 1440 px.
+- Compras automáticas ou qualquer outra ação no mundo externo. O sistema apoia a produção e as compras, mas não as executa.
+- Substituir o WhatsApp como canal de vendas.
+- Funil de vendas e captação de novos clientes. A confeiteira quer fidelizar os clientes atuais, não atrair novos.
+- Loja virtual, pagamento online ou emissão de nota fiscal.
+- Várias empresas ou vários perfis de usuário. Existe uma única usuária, administradora.
+- Aplicativo mobile nativo. O acesso é pelo navegador, com interface responsiva entre 390 e 1440 px.
 
 ## 4.3 EAP – Estrutura Analítica do Projeto
 
@@ -80,7 +76,7 @@ flowchart TB
 
 ## 4.4 Dependências entre pacotes da EAP
 
-Extraído da `MATRIZ_DEPENDENCIA.xlsx`. Uma seta `A --> B` significa que B depende de A.
+Uma seta `A --> B` indica que B depende de A.
 
 ```mermaid
 flowchart LR
@@ -125,9 +121,9 @@ flowchart LR
 
 | Sprint | Principais entregáveis |
 |---|---|
-| Sprint 1 (fev–mar/2026) | Documento de Condução, troca de beneficiária, proto-persona, jornada do concorrente, relatório Elevator Pitch, Arquitetura da Informação e UX Writing, Crazy 8s, BPMN AS-IS (primário e de apoio), definição de escopo e ODS, apresentação em 17/03 |
-| Sprint 2 (mar–mai/2026) | Métricas e KPIs, histórias de usuário, RF/RNF, BD v2 e script, protótipo de alta fidelidade no Figma, visita técnica (12/04), teste de usabilidade, Swagger e login com JWT, programas de fidelidade |
-| Sprint 3 (mai–jun/2026) | Mapeamento de endpoints, modelagem v4, tela de Login, protótipo com acessibilidade de fonte, BPMN TO-BE, especificação de métricas do dashboard, árvore de decisão do bot, testes de service no back-end |
-| Sprint 4 (ago–set/2026) | Arquitetura hexagonal da POC de notificação, 3 telas core integradas ao back-end, TAP, EAP, diagrama de casos de uso, critérios de aceitação, métricas de qualidade, diagrama de classes, diagrama de sequência |
-| Sprint 5 (set–out/2026) | Consultoria cruzada (Grupo 1), 2 novas telas (Produção e Histórico), diagramas de contexto, contêiner e implantação, integração da POC ao banco, notificações e fonte acessível no front |
-| Sprint 6 (out–dez/2026) | Homologação, manual, relatório final e entrega (prazo final em 08/12/2026) |
+| Sprint 1 | Proto-persona, jornada do concorrente, pesquisa de mercado, arquitetura da informação, Crazy 8s, BPMN AS-IS (processo principal e de apoio), definição de escopo |
+| Sprint 2 | Métricas e KPIs, histórias de usuário, requisitos, primeira versão do banco, protótipo de alta fidelidade, visita técnica e teste de usabilidade, documentação da API e login com JWT |
+| Sprint 3 | Mapeamento de endpoints, modelo de dados v4, tela de Login, acessibilidade de fonte, BPMN TO-BE, especificação dos indicadores, árvore de decisão do assistente, testes dos services |
+| Sprint 4 | Arquitetura hexagonal das integrações, três telas principais integradas à API, EAP, casos de uso, critérios de aceite, métricas de qualidade, diagramas de classes e de sequência |
+| Sprint 5 | Telas de Produção e Histórico, notificações e fonte acessível na interface, diagramas de contexto, contêineres e implantação, integração da prova de conceito ao banco |
+| Sprint 6 | Homologação com a confeiteira, manual do usuário e entrega final |

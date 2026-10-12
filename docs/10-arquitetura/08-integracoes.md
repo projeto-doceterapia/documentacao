@@ -1,10 +1,10 @@
 # 10.8 Integrações: WhatsApp e IA
 
-> Fontes: repositório `estoque-wpp` (POC), `analise-gaps-whatsapp-confeitaria-final.md`, `prd-assistente-atualizacao-estoque-whatsapp.md` (v0.1, 05/10/2026) e Status Report (Semanas 9–15: arquitetura hexagonal, troca Gemini → GPT, MCP).
+A ideia é a confeiteira atualizar o estoque pelo próprio WhatsApp, mandando a foto da nota fiscal ou escrevendo a compra (por exemplo, "comprei 2 kg de farinha"), e receber alertas do sistema pelo mesmo canal. Esta seção descreve a prova de conceito que já existe, o que falta para ela virar parte do produto e a arquitetura planejada.
 
-## 10.8.1 Estado atual: POC `estoque-wpp`
+## 10.8.1 Estado atual: prova de conceito
 
-Serviço Node.js independente que recebe a foto de uma nota fiscal pelo WhatsApp (Twilio), extrai os itens com o Gemini e faz upsert em um MySQL próprio.
+Serviço Node.js independente (repositório `estoque-wpp`) que recebe a foto de uma nota fiscal pelo WhatsApp (Twilio), extrai os itens com o Gemini e faz upsert em um MySQL próprio.
 
 | Item | Detalhe |
 |---|---|
@@ -18,7 +18,7 @@ Serviço Node.js independente que recebe a foto de uma nota fiscal pelo WhatsApp
 
 A sequência está em [10.3.6](03-uml.md#1036-sequência--entrada-de-estoque-por-nota-fiscal-poc).
 
-## 10.8.2 Análise de gaps (POC → produto)
+## 10.8.2 Lacunas entre a prova de conceito e o produto
 
 | Gap | Descrição | Prioridade |
 |---|---|---|
@@ -35,13 +35,13 @@ A sequência está em [10.3.6](03-uml.md#1036-sequência--entrada-de-estoque-por
 
 O volume estimado (cerca de 50 mensagens por dia) não justifica uma fila dedicada nesta fase.
 
-## 10.8.3 Arquitetura alvo: assistente de estoque via WhatsApp (PRD)
+## 10.8.3 Arquitetura alvo: assistente de estoque via WhatsApp
 
-Arquitetura **hexagonal**. O orquestrador define as portas (`ChannelPort`, porta de IA, porta do core), e os adaptadores podem ser trocados por configuração (`CHANNEL`, provedor de IA). Nada é gravado sem a confirmação explícita da beneficiária.
+Arquitetura **hexagonal**. O orquestrador define as portas (`ChannelPort`, porta de IA, porta do core), e os adaptadores podem ser trocados por configuração (`CHANNEL`, provedor de IA). Nada é gravado sem a confirmação explícita da confeiteira.
 
 ```mermaid
 flowchart LR
-    U["Beneficiária<br/>(WhatsApp)"]
+    U["Confeiteira<br/>(WhatsApp)"]
     subgraph CANAL["Adaptadores de canal (CHANNEL)"]
         direction TB
         B["Baileys (Node)<br/>não oficial"]
@@ -107,17 +107,17 @@ stateDiagram-v2
 
 ### Regras e decisões principais
 
-- **RN-01:** nada é gravado sem confirmação. **RN-03:** a entrada **soma** ao estoque e nunca sobrescreve. **RN-08:** no máximo 2 ajustes por leitura. **RN-14:** só o chat autorizado é atendido. **RN-10:** imagens e rascunhos não são persistidos (LGPD).
-- **D1–D18:** uma única beneficiária, orquestrador em Python, canal intercambiável, Redis com AOF, LLM multimodal, sem MCP nesta versão, um request por item, idempotência e retry exponencial com jitter.
+- **Regras:** nada é gravado sem confirmação. A entrada **soma** ao estoque e nunca sobrescreve. São permitidos no máximo 2 ajustes por leitura. Só o chat autorizado é atendido. Imagens e rascunhos não são guardados (LGPD).
+- **Decisões:** uma única usuária, orquestrador em Python, canal intercambiável, Redis com AOF, LLM multimodal, sem MCP nesta versão, um request por item, idempotência e retry exponencial com jitter.
 - **Riscos principais:**
   - Banimento no modo Baileys (aceito e documentado).
   - Alucinação da IA (mitigada pela confirmação humana).
   - Endpoints do core ainda inexistentes (bloqueante).
   - Mudança de preço da Meta.
 
-### Próximos passos registrados (Status Report, Semana 14)
+### Próximos passos
 
-- Integrar a POC ao banco e à aplicação final (Felipe e Escudero).
+- Integrar a prova de conceito ao banco e à API principal.
 - Trocar o modelo de IA de Gemini para GPT (sugestão de melhoria).
 - Avaliar MCP para um assistente de IA em todo o sistema (desejável).
-- Finalizar os diagramas de contêiner e de implantação e documentar a infraestrutura.
+- Documentar a infraestrutura de produção da integração.

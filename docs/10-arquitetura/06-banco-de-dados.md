@@ -1,8 +1,8 @@
 # 10.6 Banco de dados
 
-> Repositório: `banco-de-dados` · Script: `scriptv4.sql` (MySQL 8, schema `doce_terapia`) · Modelo: `modelagemv4.mwb` · Imagem: `doceTerapia.png`
+> Script: `scriptv4.sql` (MySQL 8, schema `doce_terapia`) · Modelo: `modelagemv4.mwb` · Imagem: `doceTerapia.png`
 >
-> Evolução: v2 → v3 → DER → **v4** (commits de `banco-de-dados`). O modelo é dividido em duas áreas: **Comercial** (cliente, pedido, pagamento, cancelamento) e **Composição** (produto, insumo, ficha técnica, item e produção).
+> O modelo está na quarta versão. Ele é dividido em duas áreas: **Comercial** (cliente, pedido, pagamento, cancelamento) e **Composição** (produto, insumo, ficha técnica, item e produção).
 
 ## Modelo entidade-relacionamento (scriptv4.sql)
 
@@ -185,4 +185,4 @@ erDiagram
 | `produto`, `insumo` | `status TINYINT` | enum `STRING` | Padronizar |
 | — | ausentes | `usuario`, `notificacao`, `configuracao_farol_agenda` | Adicionar ao script |
 
-> Pela convenção do time (`AGENTS.md`), mudanças de schema devem atualizar `scriptv4.sql` e o `.mwb` ao mesmo tempo e manter as entidades alinhadas. O `back-end/src/main/resources/schema.sql` é uma terceira cópia do DDL, com diferenças próprias.
+> Pela convenção do time, mudanças de schema devem atualizar `scriptv4.sql` e o `.mwb` ao mesmo tempo e manter as entidades alinhadas. O `schema.sql` dentro da API é uma terceira cópia do DDL, com diferenças próprias.

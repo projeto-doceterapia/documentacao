@@ -1,6 +1,6 @@
 # 10. Artefatos de arquitetura
 
-Esta seção descreve a arquitetura **como está implementada** (AS-IS, out/2026), a partir do código dos repositórios `front-end`, `back-end` e `banco-de-dados`. Também cobre a arquitetura **planejada** (TO-BE) para as integrações. Todos os diagramas usam Mermaid e são renderizados direto no GitHub.
+Esta seção descreve a arquitetura do sistema **como está implementada** (AS-IS) nos repositórios de front-end, back-end e banco de dados, e a arquitetura **planejada** (TO-BE) para as integrações com WhatsApp e IA. Todos os diagramas usam Mermaid e são renderizados direto no GitHub.
 
 | # | Documento | Conteúdo |
 |---|---|---|
@@ -11,4 +11,4 @@ Esta seção descreve a arquitetura **como está implementada** (AS-IS, out/2026
 | 10.5 | [Front-end](05-front-end.md) | Estrutura, navegação, telas, consumo da API, acessibilidade e CI |
 | 10.6 | [Banco de dados](06-banco-de-dados.md) | Modelo lógico (MER), dicionário de dados e divergências entre SQL e JPA |
 | 10.7 | [Débitos técnicos](07-debitos-tecnicos.md) | Riscos e lacunas encontrados no código, com prioridade |
-| 10.8 | [Integrações (WhatsApp e IA)](08-integracoes.md) | POC `estoque-wpp`, análise de gaps e arquitetura alvo do assistente de estoque |
+| 10.8 | [Integrações (WhatsApp e IA)](08-integracoes.md) | Prova de conceito de WhatsApp, lacunas e arquitetura alvo do assistente de estoque |

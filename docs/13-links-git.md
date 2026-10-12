@@ -4,17 +4,15 @@ Todo o código fica na organização **[projeto-doceterapia](https://github.com/
 
 ## 13.1 Repositórios
 
-| Repositório | Link | Conteúdo | Commits | Período |
-|---|---|---|---|---|
-| front-end | <https://github.com/projeto-doceterapia/front-end> | SPA React 19 + Vite | 36 | 31/05/2026 – 05/10/2026 |
-| back-end | <https://github.com/projeto-doceterapia/back-end> | API REST Java 21 + Spring Boot 4 | 29 | 24/03/2026 – 14/06/2026 |
-| banco-de-dados | <https://github.com/projeto-doceterapia/banco-de-dados> | `scriptv4.sql`, `modelagemv4.mwb`, DER | 5 | 24/03/2026 – 16/06/2026 |
-| documentacao | <https://github.com/projeto-doceterapia/documentacao> | Esta documentação | 5 antes desta versão | 03/03/2026 – |
-| estoque-wpp | <https://github.com/projeto-doceterapia/estoque-wpp> | POC WhatsApp + Twilio + Gemini | 5 | 21/04/2026 – 15/06/2026 |
+| Repositório | Link | Conteúdo |
+|---|---|---|
+| front-end | <https://github.com/projeto-doceterapia/front-end> | SPA React 19 + Vite |
+| back-end | <https://github.com/projeto-doceterapia/back-end> | API REST Java 21 + Spring Boot 4 |
+| banco-de-dados | <https://github.com/projeto-doceterapia/banco-de-dados> | Script MySQL (`scriptv4.sql`), modelo do Workbench e imagem do DER |
+| documentacao | <https://github.com/projeto-doceterapia/documentacao> | Esta documentação |
+| estoque-wpp | <https://github.com/projeto-doceterapia/estoque-wpp> | Prova de conceito de WhatsApp (Twilio + Gemini) |
 
-Números contados em `main` em 09/10/2026 (`git rev-list --count HEAD`).
-
-Repositório de referência fora da organização: [FelipeLima24/doceterapia](https://github.com/FelipeLima24/doceterapia), um fork que consolida as pastas do projeto com outra stack de front-end (React 18 + TypeScript). Ele não é a base ativa.
+Existe também um fork de referência fora da organização ([FelipeLima24/doceterapia](https://github.com/FelipeLima24/doceterapia)), que junta as pastas do projeto e usa outra stack no front-end (React 18 + TypeScript). Ele não é a base ativa.
 
 ## 13.2 Como os repositórios se relacionam
 
