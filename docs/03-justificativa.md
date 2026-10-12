@@ -1,51 +1,69 @@
 # 3. Justificativa
 
-> Fontes: `TAP2026.pdf`, `OFICIAL_DOCETERAPIA.docx`, `Anotações - Beneficiário.txt`, `RELATORIO_VISITA_TECNICA.docx`, `SIS - Atividade Integrada com PI - RELATÓRIO ELEVATOR PITCH.docx`.
+## 3.1 Por que a Doceterapia precisa de um sistema
 
-## 3.1 Problema
+Hoje os pedidos da Doceterapia ficam espalhados entre as conversas do WhatsApp e anotações à mão, e o estoque é controlado no olho. Isso gera riscos concretos para o negócio:
 
-Confeiteiras autônomas têm problemas críticos na organização de pedidos e de estoque. Na Doceterapia, os pedidos chegam pelo WhatsApp e são anotados à mão, e o estoque é controlado "no olho". Essa informalidade aumenta o risco de:
+- **Esquecimento e perda de informação:** detalhes do pedido ficam presos na conversa ou numa anotação incompleta.
+- **Falta ou excesso de insumos:** sem saber o que há no armário, a confeiteira descobre a falta no meio da produção ou compra o que já tinha.
+- **Sobrecarga:** como é difícil recusar clientes antigos, entram mais encomendas do que é possível produzir, o que causa atrasos.
+- **Prejuízo invisível:** sem custo por produto, um preço pode não cobrir os ingredientes, e ninguém percebe.
+- **Estagnação:** sem histórico de clientes e sem indicadores, não há base para fidelizar nem para planejar.
 
-- perder informações e esquecer pedidos;
-- retrabalho e atrasos na entrega;
-- compras desnecessárias ou falta de ingredientes no meio da produção;
-- vender com prejuízo, já que o preço é definido sem conhecer o custo real;
-- estagnar, sem histórico de clientes para fidelização.
+## 3.2 Dores priorizadas e como o sistema responde
 
-As soluções de mercado (por exemplo, Sortly para estoque e Motion para organização de tarefas, analisadas na jornada do concorrente) são caras ou complexas demais para uma microempreendedora com pouca familiaridade digital.
+Nas conversas com a confeiteira, cada dor foi marcada com uma intensidade. A tabela vai da mais forte para a mais fraca.
 
-Se o projeto não for executado, a confeitaria continua exposta a atrasos, esquecimentos e estagnação por falta de histórico estruturado (TAP).
-
-## 3.2 Dores priorizadas pela beneficiária
-
-Na entrevista, as dores foram marcadas por intensidade (quanto mais `*`, maior a ênfase da beneficiária). Consolidação:
-
-| Prioridade | Dor | Ênfase | Como o sistema responde |
+| Prioridade | Dor | Intensidade | Resposta do sistema |
 |---|---|---|---|
-| 1 | Precificação por "achismo", sem custo real nem margem | `***************` | Ficha técnica `ProdutoInsumo`, custo estimado, preço sugerido, margem por item e painel de lucro |
-| 2 | Estoque sem controle e sem validação antes de aceitar o pedido | `**` | Cadastro de insumos com quantidade mínima, alerta de estoque baixo e verificação de viabilidade (planejada) |
-| 3 | Aceitar pedidos sem controle de capacidade (pedidos de última hora, grande volume) | `**` | Agenda com farol verde/amarelo/vermelho e métrica de dias lotados |
-| 4 | Receitas sem registro e sem padronização | `**` | Composição do produto (insumos e quantidades) |
-| 5 | Histórico de clientes só na memória | — | Cadastro de clientes com histórico de pedidos e classificação (padrão, frequente, alto volume) |
-| 6 | Regra do sinal de 50% controlada à mão | `*****` | Pagamento com cálculo automático de sinal e restante e status de pagamento |
-| 7 | Dificuldade com interfaces (botões difíceis de achar, fonte pequena) | — | Interface simples, poucos campos e controle de tamanho de fonte |
+| 1 | Preço definido por estimativa, sem custo real nem margem | Muito alta | Ficha técnica do produto (insumos e quantidades), custo estimado, preço sugerido, margem por item vendido e painel de lucro |
+| 2 | Pagamento do sinal de 50% controlado de cabeça | Alta | Sinal e restante calculados automaticamente, com status de pagamento por pedido |
+| 3 | Estoque sem controle e sem conferência antes de aceitar o pedido | Média | Cadastro de insumos com quantidade mínima e alerta de estoque baixo. Verificação de viabilidade planejada |
+| 4 | Pedidos aceitos sem olhar a capacidade (última hora, grandes volumes) | Média | Agenda com farol verde, amarelo e vermelho e contagem de dias lotados |
+| 5 | Receitas sem registro e sem padrão | Média | Composição de cada produto em insumos |
+| 6 | Histórico de clientes só na memória | — | Cadastro de clientes com histórico de pedidos e classificação |
+| 7 | Dificuldade com sistemas (botões difíceis de achar, letra pequena) | — | Interface com poucos campos, rótulos em linguagem natural e ajuste do tamanho da fonte |
 
-## 3.3 Benefícios esperados
+## 3.3 Por que não usar uma solução pronta
 
-- Mais eficiência operacional e organização.
-- Planejamento da produção por data e por capacidade.
-- Decisões baseadas em dados (lucro, custo, margem, produtos mais pedidos).
-- Melhor atendimento e fidelização, com histórico por cliente.
-- Contribuição social: fortalecer um microempreendimento local em um setor que tem 75% de negócios com menos de 10 funcionários e mortalidade de 28,54% (Sebrae).
+Durante a pesquisa, foram analisadas ferramentas como o **Sortly** (controle de estoque) e o **Motion** (organização de tarefas). As dificuldades encontradas:
 
-## 3.4 Validação das hipóteses de negócio
+- custo mensal alto para um microempreendimento;
+- configuração inicial longa e muitos campos obrigatórios;
+- foco genérico, sem conceitos da confeitaria como sinal de 50%, ficha técnica e capacidade diária;
+- interfaces pensadas para quem já tem familiaridade com tecnologia.
 
-As hipóteses de negócio foram validadas na visita técnica de 12/04/2026, com observação direta e teste de usabilidade do protótipo (ver [08 - Registro das entrevistas](08-registro-entrevistas.md#83-visita-técnica-12042026)):
+Um sistema sob medida trata só o que importa para a Doceterapia, usa a linguagem dela e mantém o WhatsApp como canal.
+
+## 3.4 O cenário do setor
+
+A situação da Doceterapia é comum no setor:
+
+- O Brasil tem cerca de 179 mil padarias e confeitarias, das quais aproximadamente 116 mil são confeitarias. Elas representam 14,5% do food service nacional.
+- O Sudeste concentra 58% das confeitarias, e o estado de São Paulo passa de 40 mil unidades.
+- O setor de panificação e confeitaria faturou R$ 153,3 bilhões em 2024 (alta de 10,9%). O mercado de confeitaria e festas deve chegar a R$ 21 bilhões em 2026, puxado por doces artesanais e encomendas personalizadas.
+- 75% das confeitarias têm menos de 10 funcionários, e a mortalidade do setor é de 28,54%.
+- As principais causas de fechamento são falta de planejamento, gestão deficiente e má gestão de estoque. A ineficiência em compras pode consumir até 3% do faturamento líquido, e cerca de 30% das empresas perdem dinheiro por desorganização dos insumos.
+
+O mercado cresce, mas os pequenos negócios ainda operam no improviso. Organizar pedidos e estoque ataca justamente as causas mais comuns de fechamento.
+
+## 3.5 Benefícios esperados
+
+- **Organização:** todos os pedidos em um lugar, do orçamento à entrega.
+- **Planejamento:** a confeiteira vê a carga de cada dia antes de aceitar uma nova encomenda.
+- **Precificação consciente:** custo e margem conhecidos para cada produto.
+- **Menos desperdício e menos falta:** estoque com mínimo definido e alertas.
+- **Fidelização:** histórico e classificação de clientes.
+- **Decisão baseada em dados:** lucro, custo, margem e produtos mais vendidos.
+
+## 3.6 Validação com a usuária
+
+As hipóteses que orientaram o sistema foram conferidas com a confeiteira, por observação da rotina e por teste do protótipo (detalhes em [08 - Registro das entrevistas](08-registro-entrevistas.md#83-visita-técnica)):
 
 | Hipótese | Resultado |
 |---|---|
-| Pedidos dispersos no WhatsApp causam perda de informação | Confirmada: falta de centralização e dependência da memória |
-| O estoque visual causa falta ou excesso de insumos | Confirmada: não há controle de estoque confiável |
-| A usuária adota um sistema se ele for muito simples | Confirmada com ressalva: telas com muitos campos geram dificuldade, e elementos visuais ajudam |
-| O sistema substituiria o WhatsApp | **Refutada**: a solução deve complementar o WhatsApp, não substituí-lo |
-| Alertas têm valor para a usuária | Confirmada: alertas de estoque e de organização foram valorizados |
+| Pedidos espalhados no WhatsApp causam perda de informação | Confirmada |
+| O controle visual do estoque causa falta ou excesso de insumos | Confirmada |
+| A usuária adota o sistema se ele for muito simples | Confirmada, com a condição de ter poucos campos e apoio visual |
+| O sistema deveria substituir o WhatsApp | **Refutada**: ele deve complementar o WhatsApp |
+| Os alertas têm valor para a usuária | Confirmada |

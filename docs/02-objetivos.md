@@ -1,38 +1,35 @@
 # 2. Objetivos
 
-> Fontes: `OFICIAL_DOCETERAPIA.docx`, `TAP2026.pdf`, `Documento de Condução.docx`.
-
 ## 2.1 Objetivo geral
 
-Desenvolver um sistema simples e funcional para ajudar na gestão de pedidos, clientes e estoque de uma confeitaria de pequeno porte, a Doceterapia.
+Oferecer à Doceterapia um sistema web simples e funcional que centralize a gestão de pedidos, clientes, produção e estoque e dê à confeiteira informação confiável para decidir o que aceitar, o que produzir, o que comprar e quanto cobrar.
 
 ## 2.2 Objetivos específicos
 
-O sistema deve ser capaz de:
+O sistema deve:
 
-1. Organizar os pedidos recebidos pelo WhatsApp em um ambiente estruturado.
-2. Permitir o controle básico do estoque de ingredientes (insumos).
-3. Alertar sobre falta de insumos e sobrecarga de pedidos.
-4. Facilitar o planejamento da produção com a visualização dos pedidos por data (agenda com "farol").
-5. Registrar informações dos clientes para interações futuras e fidelização.
-6. Disponibilizar métricas simples para apoiar a tomada de decisão (lucro, custo, margem, dias lotados).
+1. **Organizar os pedidos** recebidos pelo WhatsApp em um registro estruturado, do orçamento até a entrega.
+2. **Controlar o estoque de insumos**, com quantidade mínima e alerta quando um item estiver acabando.
+3. **Alertar sobre sobrecarga**, sinalizando os dias em que a quantidade de pedidos passa da capacidade definida pela confeiteira.
+4. **Facilitar o planejamento da produção**, mostrando os pedidos por data e por etapa.
+5. **Registrar os clientes** e seu histórico de compras, para apoiar a fidelização.
+6. **Apoiar a precificação**, relacionando cada produto aos insumos que consome, ao custo estimado e à margem.
+7. **Controlar o pagamento** de cada pedido, com sinal de 50% e restante.
+8. **Disponibilizar indicadores simples** (lucro, custo, margem, dias lotados, produtos mais pedidos) para orientar as decisões.
 
-## 2.3 Objetivo SMART (TAP)
+## 2.3 Metas mensuráveis
 
-| Dimensão | Definição |
+| Dimensão | Meta |
 |---|---|
-| **S**pecific | Sistema web simplificado de gestão de pedidos e estoque para microempreendedores de confeitaria, que centraliza as demandas do WhatsApp e gera alertas inteligentes. |
-| **M**easurable | Controlar o fluxo completo: registro de pedidos e clientes, 100% das entradas e saídas de ingredientes, e métricas básicas de lucro e falta de insumos. |
-| **A**chievable | Viável para a equipe de 6 membros, incluindo as integrações de leitura de nota fiscal e notificação (Twilio e Gemini). |
-| **R**ealistic | Interface que exija o mínimo de aprendizado, com fluxos rápidos e poucos campos. |
-| **T**ime-bound | Concluído até **08/12/2026**. |
+| Específica | Sistema web de gestão de pedidos e estoque pensado para uma microempreendedora de confeitaria, que centraliza as demandas do WhatsApp e gera alertas |
+| Mensurável | Todo pedido registrado no sistema, 100% das entradas e saídas de insumos controladas e indicadores de lucro e de falta de insumos disponíveis |
+| Alcançável | Escopo dimensionado para uma equipe pequena, priorizando os módulos essenciais e deixando as integrações com IA para uma etapa posterior |
+| Relevante | Interface com o mínimo de aprendizado, fluxos rápidos e poucos campos, adequada à rotina de produção |
+| Temporal | Em uso pela confeiteira até o fim de 2026 |
 
-## 2.4 Critérios de sucesso (TAP)
+## 2.4 Critérios de sucesso
 
-- Solução web totalmente funcional implantada antes de 08/12/2026.
-- Uso ativo do sistema pela beneficiária no dia a dia da confeitaria.
-- Redução das ocorrências operacionais: menos pedidos perdidos e alertas que evitam a falta de ingredientes de surpresa.
-
-## 2.5 Objetivo da equipe (Documento de Condução)
-
-Entregar o projeto do semestre com excelência enquanto todos desenvolvem habilidades técnicas em colaboração. As prioridades da equipe são comunicação limpa e ativa, iniciativa individual e participação de todos em cada etapa.
+- A confeiteira usa o sistema no dia a dia, sem depender de ajuda para as tarefas principais.
+- Nenhum pedido se perde entre a conversa no WhatsApp e a entrega.
+- Os alertas de estoque e de sobrecarga evitam faltas de ingrediente de surpresa e dias com mais encomendas do que a capacidade.
+- A confeiteira passa a saber o custo e a margem dos seus produtos.

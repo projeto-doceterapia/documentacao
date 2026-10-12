@@ -1,34 +1,33 @@
-# 🍰 Doceterapia – Documentação do Projeto
+# 🍰 Doceterapia – Sistema de Gestão para Confeitaria
 
-Este repositório reúne a documentação acadêmica e técnica do sistema de **gestão de pedidos, estoque e produção** da **Doceterapia**, uma confeitaria artesanal de São Paulo. O projeto é de Extensão / Pesquisa e Inovação do **Grupo 9 – 2SIS, Sistemas de Informação, São Paulo Tech School (2026)**.
+Documentação do sistema de **gestão de pedidos, estoque e produção** da **Doceterapia**, uma confeitaria artesanal de São Paulo.
 
-> **Em uma frase:** a confeiteira recebe pedidos pelo WhatsApp e controlava tudo à mão e "no olho". O sistema centraliza pedidos, agenda, clientes, produtos, insumos e pagamentos em uma aplicação web simples, com alertas de sobrecarga e de estoque e indicadores de lucro.
+> **Em uma frase:** a confeiteira recebe os pedidos pelo WhatsApp e controlava tudo à mão e "no olho". O sistema centraliza pedidos, agenda, clientes, produtos, insumos e pagamentos em uma aplicação web simples, com alertas de sobrecarga e de estoque e indicadores de lucro.
 
 | | |
 |---|---|
-| **Beneficiária** | Doceterapia (confeitaria sob encomenda, desde 2016) |
-| **Prazo** | Até 08/12/2026 |
-| **Stack** | React 19 + Vite · Java 21 + Spring Boot 4 · MySQL 8 · (POC) Node + Twilio + Gemini |
+| **Para quem** | Doceterapia, confeitaria sob encomenda. Uma única usuária: a proprietária |
+| **Stack** | React 19 + Vite · Java 21 + Spring Boot 4 · MySQL 8 · (prova de conceito) Node + Twilio + Gemini |
 | **Repositórios** | [front-end](https://github.com/projeto-doceterapia/front-end) · [back-end](https://github.com/projeto-doceterapia/back-end) · [banco-de-dados](https://github.com/projeto-doceterapia/banco-de-dados) · [estoque-wpp](https://github.com/projeto-doceterapia/estoque-wpp) |
 
 ## 📚 Índice
 
 | # | Seção | Conteúdo |
 |---|---|---|
-| 1 | [Contexto](docs/01-contexto.md) | Beneficiária, operação atual (AS-IS), escolha da beneficiária, mercado |
-| 2 | [Objetivos](docs/02-objetivos.md) | Objetivo geral, objetivos específicos, objetivo SMART, critérios de sucesso |
-| 3 | [Justificativa](docs/03-justificativa.md) | Problema, dores priorizadas, benefícios, validação das hipóteses |
+| 1 | [Contexto](docs/01-contexto.md) | A Doceterapia, como o negócio funciona sem o sistema, o problema e a visão geral do sistema |
+| 2 | [Objetivos](docs/02-objetivos.md) | Objetivo geral, objetivos específicos, metas mensuráveis, critérios de sucesso |
+| 3 | [Justificativa](docs/03-justificativa.md) | Necessidade, dores e respostas do sistema, alternativas de mercado, cenário do setor, benefícios, validação |
 | 4 | [Escopo](docs/04-escopo.md) | Dentro e fora do escopo, EAP, dependências, entregáveis por sprint |
 | 5 | [Requisitos](docs/05-requisitos.md) | RF01–RF13, RNF01–RNF10, histórias de usuário, critérios de aceite, rastreabilidade |
 | 6 | [Premissas](docs/06-premissas.md) | Condições assumidas e impacto |
 | 7 | [Restrições](docs/07-restricoes.md) | Restrições de projeto e técnicas |
-| 8 | [Registro das entrevistas](docs/08-registro-entrevistas.md) | Entrevista, visita técnica, teste de usabilidade, atas |
+| 8 | [Registro das entrevistas](docs/08-registro-entrevistas.md) | Entrevista, visita técnica, teste de usabilidade, decisões de reunião |
 | 9 | [Artefatos de regra de negócio](docs/09-regras-de-negocio.md) | Catálogo, RN01–RN24, BPMN AS-IS e TO-BE, máquinas de estado, indicadores, personas |
 | 10 | [Artefatos de arquitetura](docs/10-arquitetura/README.md) | Visão geral, **C4 Model**, **UML**, back-end, front-end, banco, débitos técnicos, integrações |
-| 11 | [Product backlog](docs/11-product-backlog.md) | Épicos, itens priorizados (MoSCoW), situação, plano da Sprint 6 |
+| 11 | [Product backlog](docs/11-product-backlog.md) | Épicos, itens priorizados (MoSCoW), situação, próximas entregas |
 | 12 | [Ferramentas de planejamento](docs/12-ferramentas-de-planejamento.md) | Equipe, cronograma (Gantt), responsabilidades, rituais, status report, GTD, retrospectivas |
 | 13 | [Links do projeto no Git](docs/13-links-git.md) | Repositórios, histórico, convenções, como executar |
-| 14 | [Referências bibliográficas](docs/14-referencias.md) | Mercado, métodos, modelagem, tecnologias, documentos internos |
+| 14 | [Referências bibliográficas](docs/14-referencias.md) | Mercado, métodos, modelagem e tecnologias |
 
 ### Arquitetura (seção 10)
 
@@ -41,7 +40,7 @@ Este repositório reúne a documentação acadêmica e técnica do sistema de **
 | [10.5 Front-end](docs/10-arquitetura/05-front-end.md) | Navegação (estados), telas, acessibilidade, CI |
 | [10.6 Banco de dados](docs/10-arquitetura/06-banco-de-dados.md) | MER do `scriptv4.sql`, modelo JPA, divergências |
 | [10.7 Débitos técnicos](docs/10-arquitetura/07-debitos-tecnicos.md) | 23 débitos priorizados e roteiro de correção |
-| [10.8 Integrações](docs/10-arquitetura/08-integracoes.md) | POC WhatsApp, análise de gaps, arquitetura hexagonal alvo |
+| [10.8 Integrações](docs/10-arquitetura/08-integracoes.md) | Prova de conceito de WhatsApp, lacunas, arquitetura hexagonal alvo |
 
 ## 🗺️ Visão rápida da solução
 
@@ -74,12 +73,13 @@ Sem configuração extra, a API usa H2 em memória. Para usar MySQL, execute `ba
 | Davi Escudero Caproni | Infraestrutura e DevOps |
 | Felipe Queiroz de Lima | Banco de Dados |
 | Gwen Raldes de Barros | Qualidade e Regras do Sistema |
-| Maria Luiza Costa Góes | Interface e Front-end · Representante do grupo |
+| Maria Luiza Costa Góes | Interface e Front-end · Liderança |
 | Pedro Guimarães Sakaue | Produto e Documentação Técnica |
 
 ## 📝 Sobre esta documentação
 
-- Fontes: o código dos repositórios (out/2026) e os documentos do grupo (TAP, Documento de Condução, atas, relatório de visita, entregáveis de UX, Modelagem e Gestão de Projetos, status reports). Cada página indica as fontes que usou.
+- A documentação é autocontida: descreve o negócio, as regras e a arquitetura do sistema sem depender de outros materiais. Os detalhes técnicos refletem o estado atual do código.
 - Os diagramas são escritos em [Mermaid](https://mermaid.js.org) e o GitHub renderiza direto. Para editar, altere o bloco ` ```mermaid ` no Markdown.
-- Dados pessoais (CPF, endereço, telefone, e-mail, RA e nomes dos participantes dos testes) foram omitidos de propósito.
+- Dados pessoais (documentos, endereço, telefone, e-mail e nomes dos participantes dos testes) foram omitidos de propósito.
+- Contexto acadêmico: o sistema foi desenvolvido pelo Grupo 9 da turma 2SIS de Sistemas de Informação da São Paulo Tech School, em 2026.
 - Licença: [MIT](LICENSE).
