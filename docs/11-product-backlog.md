@@ -66,19 +66,19 @@ mindmap
 | PB11 | EP04 | Ficha técnica (insumos por produto) editável no front | RN15 | S | 5 | 🟡 só leitura no front |
 | PB12 | EP04 | Calcular custo estimado e preço sugerido a partir da ficha técnica | Principal dor da confeiteira | M | 8 | ⛔ |
 | PB13 | EP05 | Tela de Estoque (CRUD de insumos e categorias) | US03, RF05 | M | 5 | ⛔ |
-| PB14 | EP05 | Alerta de estoque baixo (Visão Geral e notificação `ESTOQUE_BAIXO`) | US03, RF07 | M | 3 | 🟡 |
+| PB14 | EP05 | Alerta de estoque baixo (Visão Geral e notificação `ESTOQUE_BAIXO`) | US03, RF07 | M | 3 | 🟡 geração automática de `ESTOQUE_BAIXO` implementada, em revisão (`back-end`) |
 | PB15 | EP05 | Baixa automática de insumos ao iniciar a produção | RF06, RN24 | S | 8 | ⛔ |
 | PB16 | EP05 | Verificar viabilidade e bloquear a confirmação quando faltar insumo | RF08, RN23, CA03 | S | 8 | ⛔ |
-| PB17 | EP05 | Histórico de movimentações de estoque | RF09 | C | 5 | ⛔ |
+| PB17 | EP05 | Histórico de movimentações de estoque | RF09 | C | 5 | 🟡 ledger e `GET /estoque/movimentos` implementados, em revisão (`back-end`); falta tela |
 | PB18 | EP06 | Sinal de 50% e restante (API) | RN02–RN05 | M | 3 | ✅ |
 | PB19 | EP06 | Propagar o total dos itens para o pagamento e registrar sinal e restante pela interface | D05 | M | 5 | ⛔ |
 | PB20 | EP07 | Visão Geral: lucro, custo, margem, dias lotados e gráficos | RF13 | M | 8 | ✅ |
 | PB21 | EP07 | Filtro de período na Visão Geral | Métricas | C | 3 | ⛔ |
 | PB22 | EP08 | Notificações na topbar | UC14 | S | 3 | ✅ |
-| PB23 | EP08 | Geração automática de notificações (`@Scheduled`) | G7–G9 | S | 5 | ⛔ |
-| PB24 | EP08 | Entrada de estoque por foto da nota fiscal | CA01, CA02 | S | 13 | 🧪 |
-| PB25 | EP08 | Assistente de estoque no WhatsApp com confirmação | Arquitetura alvo da integração | C | 21 | ⛔ |
-| PB26 | EP08 | Envio de alertas pelo WhatsApp | Escopo | C | 8 | ⛔ |
+| PB23 | EP08 | Geração automática de notificações (`@Scheduled`) | G7–G9 | S | 5 | ✅ implementado, em revisão (`back-end`), ainda não implantado |
+| PB24 | EP08 | Entrada de estoque por foto da nota fiscal | CA01, CA02 | S | 13 | 🟡 integrada ao core pelo assistente, em revisão (`back-end`, `assistente-whatsapp`); antes era só prova de conceito (🧪) |
+| PB25 | EP08 | Assistente de estoque no WhatsApp com confirmação | Arquitetura alvo da integração | C | 21 | ✅ implementado, em revisão (`assistente-whatsapp`, `infra`), ainda não implantado |
+| PB26 | EP08 | Envio de alertas pelo WhatsApp | Escopo | C | 8 | ✅ implementado, em revisão (`assistente-whatsapp`), ainda não implantado |
 | PB27 | EP09 | Login e logout com JWT em cookie | RNF06 | M | 5 | ✅ API · 🟡 front |
 | PB28 | EP09 | Proteger as rotas de domínio e separar perfis `local` e `prod` | D01, D02 | M | 3 | ⛔ |
 | PB29 | EP10 | Aumentar e reduzir fonte | Visita técnica | M | 2 | ✅ |

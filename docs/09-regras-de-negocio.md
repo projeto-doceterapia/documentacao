@@ -47,7 +47,7 @@ Regra comercial impressa no cardápio: **"Pedidos somente com sinal de 50% no at
 | RN21 | O cliente é classificado como `PADRAO`, `FREQUENTE` ou `ALTO_VOLUME`, e o tipo de pessoa como `FISICA` ou `JURIDICA` | Fidelização (empresas e grandes volumes) | `Cliente` e filtros de `Clientes.jsx` |
 | RN22 | Não existe tela de autocadastro. A conta da usuária é criada pela equipe | Arquitetura da informação | `POST /usuarios` sem tela no front |
 | RN23 | *(planejada)* O pedido não pode ser confirmado se faltarem insumos | Critério de aceite 03 | Não implementada |
-| RN24 | *(planejada)* A produção dá baixa nos insumos do estoque | BPMN TO-BE | Não implementada |
+| RN24 | *(planejada)* A produção dá baixa nos insumos do estoque | BPMN TO-BE | Não implementada. O ledger de estoque (`movimentacao_estoque`) já existe e aceita `ENTRADA_COMPRA`, `SALDO_INICIAL` e `AJUSTE`, mas nenhum movimento de baixa é disparado pela produção |
 
 ## 9.3 Processo AS-IS (BPMN)
 

@@ -69,7 +69,7 @@ erDiagram
         varchar tipo_pedido "45, NN"
         varchar status_pedido "245, NN"
         varchar forma_entrega "45, NN"
-        varchar endereco_entrega "225"
+        varchar endereco_entrega "255"
         date data_criacao "NN"
         date data_entrega
         decimal margem_lucro "4,2"

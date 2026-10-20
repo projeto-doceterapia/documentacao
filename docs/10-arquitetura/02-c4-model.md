@@ -206,6 +206,8 @@ flowchart TB
 ```
 
 > Para receber webhooks do Twilio em uma máquina local, a porta 3000 precisa ser exposta publicamente (por exemplo, com um túnel). O diagrama mostra isso como um túnel HTTPS.
+>
+> Esta porta 3000 é o servidor de desenvolvimento Express da **prova de conceito** (repositório `estoque-wpp`, hoje referência apenas). Não confundir com a porta 3000 publicada pelo **front-end conteinerizado** do assistente de estoque (nginx + SPA), que é a atual (ver [10.9](09-assistente-visao-geral.md) e [10.13](13-assistente-implantacao.md)).
 
 ## Diagrama dinâmico – Registrar orçamento
 

@@ -37,6 +37,8 @@ O volume estimado (cerca de 50 mensagens por dia) não justifica uma fila dedica
 
 ## 10.8.3 Arquitetura alvo: assistente de estoque via WhatsApp
 
+> Esta era a arquitetura **alvo** desta fase de planejamento. Ela foi implementada e está em revisão nos pull requests dos repositórios de produto; a entrega está documentada em [10.9–10.14](09-assistente-visao-geral.md). O texto abaixo é mantido como o planejamento que a originou.
+
 Arquitetura **hexagonal**. O orquestrador define as portas (`ChannelPort`, porta de IA, porta do core), e os adaptadores podem ser trocados por configuração (`CHANNEL`, provedor de IA). Nada é gravado sem a confirmação explícita da confeiteira.
 
 ```mermaid
@@ -112,7 +114,7 @@ stateDiagram-v2
 - **Riscos principais:**
   - Banimento no modo Baileys (aceito e documentado).
   - Alucinação da IA (mitigada pela confirmação humana).
-  - Endpoints do core ainda inexistentes (bloqueante).
+  - Endpoints do core: eram inexistentes (bloqueante) nesta fase de planejamento; já foram implementados e estão em revisão (ver [10.9–10.14](09-assistente-visao-geral.md)).
   - Mudança de preço da Meta.
 
 ### Próximos passos

@@ -16,7 +16,7 @@ Problemas encontrados na revisão do código atual. Prioridade: **Alta** (segura
 | D10 | O schema SQL diverge das entidades (mais de 15 pontos) | `scriptv4.sql` × `entity/*` × `schema.sql` | Falha ao apontar para o MySQL real com `validate` | Alta |
 | D11 | Não há tela de Estoque. O item do menu cai na Agenda | `Sidebar.jsx`, `App.jsx` | US03 e RF05 não ficam acessíveis à usuária | Média |
 | D12 | Botões sem ação: editar pedido no histórico, "+ Categoria", editar item no carrinho | front-end | Repete o problema principal do teste de usabilidade | Média |
-| D13 | Não há baixa de estoque, verificação de viabilidade nem histórico de movimentações | back-end | RF06, RF08 e RF09 pendentes | Média |
+| D13 | Havia falta de baixa de estoque, verificação de viabilidade e histórico de movimentações. O ledger `movimentacao_estoque` (entrada por compra e consulta de histórico) está implementado e em revisão (repositório `back-end`); seguem pendentes a baixa automática na produção (RF06) e a verificação de viabilidade (RF08) | back-end | RF06 parcial, RF09 atendido por entrada/consulta, RF08 pendente | Média |
 | D14 | Front-end sem testes. Back-end sem testes de controller e de repositório. ArchUnit e Database Rider sem uso | ambos | Risco de regressão | Média |
 | D15 | Injeção por campo (`@Autowired`) em classes legadas de usuário e segurança | `UsuarioService`, `AutenticacaoService`, `UsuarioController`, `SecurityConfiguracao` | Fora do padrão do time | Baixa |
 | D16 | `UsuarioMapper` em `dto/` e DTOs com sufixo `Dto` | `dto/Usuario*` | Inconsistência de nomes | Baixa |

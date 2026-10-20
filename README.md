@@ -2,7 +2,7 @@
 
 Documentação do sistema de **gestão de pedidos, estoque e produção** da **Doceterapia**, uma confeitaria artesanal de São Paulo.
 
-> **Em uma frase:** a confeiteira recebe os pedidos pelo WhatsApp e controlava tudo à mão e "no olho". O sistema centraliza pedidos, agenda, clientes, produtos, insumos e pagamentos em uma aplicação web simples, com alertas de sobrecarga e de estoque e indicadores de lucro.
+> **Em uma frase:** a confeiteira recebia os pedidos pelo WhatsApp e controlava tudo à mão e "no olho". O sistema centraliza pedidos, agenda, clientes, produtos, insumos e pagamentos em uma aplicação web simples, com alertas de sobrecarga e de estoque e indicadores de lucro.
 
 | | |
 |---|---|
@@ -41,6 +41,7 @@ Documentação do sistema de **gestão de pedidos, estoque e produção** da **D
 | [10.6 Banco de dados](docs/10-arquitetura/06-banco-de-dados.md) | MER do `scriptv4.sql`, modelo JPA, divergências |
 | [10.7 Débitos técnicos](docs/10-arquitetura/07-debitos-tecnicos.md) | 23 débitos priorizados e roteiro de correção |
 | [10.8 Integrações](docs/10-arquitetura/08-integracoes.md) | Prova de conceito de WhatsApp, lacunas, arquitetura hexagonal alvo |
+| [10.9–10.14 Assistente de estoque via WhatsApp](docs/10-arquitetura/09-assistente-visao-geral.md) | Assistente de estoque via WhatsApp: contêineres, integrações, modelo de dados, regras, implantação e rastreabilidade |
 
 ## 🗺️ Visão rápida da solução
 

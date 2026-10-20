@@ -9,12 +9,12 @@
 | Clientes | Cadastro (nome, telefone, endereço, pessoa física ou jurídica, classificação) e histórico de pedidos | Implementado |
 | Produtos e ficha técnica | Catálogo por categoria, preço atual e sugerido, custo, margem e composição de insumos | Implementado |
 | Estoque (insumos) | Cadastro de insumos e categorias, quantidade mínima e alerta de estoque baixo | Implementado na API. **A interface ainda não tem a tela de Estoque**: o item aparece no menu, mas não abre tela própria |
-| Entrada de estoque por nota fiscal | Foto da nota fiscal pelo WhatsApp, leitura por IA e atualização automática | Prova de conceito separada (Twilio + Gemini), ainda não integrada ao sistema |
+| Entrada de estoque por nota fiscal | Foto da nota fiscal pelo WhatsApp, leitura por IA e atualização automática | Implementado, em revisão (repositórios `back-end`, `assistente-whatsapp`, `infra`), ainda não implantado. Antes desta entrega: existia só na prova de conceito separada (Twilio + Gemini). Agora o assistente de estoque via WhatsApp confirma e grava os insumos no core (ver [10.9](10-arquitetura/09-assistente-visao-geral.md)) |
 | Produção | Fila de produção por prazo e status | Implementado |
 | Pagamentos | Sinal de 50%, restante, forma de pagamento e status | A API está completa. A interface só exibe o status |
 | Cancelamentos | Motivo, tipo de retorno (crédito, devolução, sem devolução) e valor | Implementado na API |
 | Indicadores (Visão Geral) | Lucro, custo, margem, dias lotados, pedidos por status, pedidos por dia, 3 produtos mais pedidos, faturamento × custo × lucro | Implementado |
-| Notificações | Alertas para a usuária (estoque baixo, pedido próximo da entrega, pagamento pendente, dia lotado, atraso) | A API tem o cadastro de notificações, e a barra superior da interface gera avisos a partir dos pedidos. O envio pelo WhatsApp é planejado |
+| Notificações | Alertas para a usuária (estoque baixo, dia lotado, resumo de início do dia, resumo de fim do dia, compra registrada, alerta operacional) | A API cadastra as notificações, a barra superior da interface gera avisos a partir dos pedidos e o envio pelo WhatsApp está implementado e em revisão (repositórios `back-end`, `assistente-whatsapp`), ainda não implantado (ver [10.9](10-arquitetura/09-assistente-visao-geral.md)). Antes desta entrega os tipos eram estoque baixo, pedido próximo da entrega, pagamento pendente, dia lotado e atraso; os três últimos sem geração foram removidos |
 | Busca | Pedidos, clientes e produtos | Busca e filtros nas telas de Produtos, Clientes, Produção e Histórico |
 | Assistente de ajuda | Chatbot 24h que orienta o uso do sistema | Árvore de decisão desenhada, ainda não implementada |
 | Acessibilidade | Aumento e redução da fonte, navegação por teclado, ARIA | Implementado |
