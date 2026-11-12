@@ -32,7 +32,7 @@ Regra comercial impressa no cardápio: **"Pedidos somente com sinal de 50% no at
 | RN06 | O status do pedido segue um fluxo fixo e pode ser cancelado em qualquer etapa antes da entrega | Processo | `PedidoService.TRANSICOES_VALIDAS` (ver 9.5.1) |
 | RN07 | Entrega exige endereço. Retirada no local, não | Processo | `PedidoService`: "Endereço de entrega é obrigatório quando a forma de entrega é ENTREGA" |
 | RN08 | A data de entrega é obrigatória e não pode estar no passado | Processo | `PedidoRequestDTO`: `@NotNull`, `@FutureOrPresent` |
-| RN09 | O cancelamento registra o motivo (`CLIENTE_DESISTIU`, `ERRO_PEDIDO`, `FALTA_INSUMO`, `OUTRO`) e o retorno ao cliente (`CREDITO_CLIENTE`, `DEVOLUCAO`, `SEM_DEVOLUCAO`) | Confeiteira (crédito ou reaproveitamento) | `CancelamentoPedidoService` também muda o pedido para `CANCELADO` |
+| RN09 | O cancelamento registra o motivo (`CLIENTE_DESISTIU`, `ERRO_PEDIDO`, `FALTA_INSUMO`, `OUTRO`) e o retorno ao cliente (`DEVOLUCAO`, `SEM_DEVOLUCAO`) | Confeiteira | `CancelamentoPedidoService` também muda o pedido para `CANCELADO` |
 | RN10 | Cada pedido tem no máximo um pagamento, uma produção e um cancelamento | Modelo | `@OneToOne` com `unique` e as exceções `PedidoAlreadyHasProducaoException` e `CancelamentoAlreadyExistsException` |
 | RN11 | A produção é linear e, depois de finalizada, não pode ser alterada | Processo | `ProducaoService` (ver 9.5.2) |
 | RN12 | O item do pedido "congela" o preço e o custo do produto no momento da venda | Precificação | `ItemPedidoMapper`: `precoOriginalProduto` e `custoEstimadoItem` |

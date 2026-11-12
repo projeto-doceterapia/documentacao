@@ -215,7 +215,7 @@ Todas ficam em `enums/` e são persistidas como `@Enumerated(EnumType.STRING)`.
 | `FormaEntrega` | `ENTREGA`, `RETIRADA` | `Pedido.formaEntrega` |
 | `FormaPagamento` | `PIX`, `DINHEIRO`, `CARTAO_CREDITO`, `CARTAO_DEBITO`, `TRANSFERENCIA` | `Pagamento.formaPagamento` |
 | `TipoCancelamento` | `CLIENTE_DESISTIU`, `ERRO_PEDIDO`, `FALTA_INSUMO`, `OUTRO` | `CancelamentoPedido` |
-| `TipoRetorno` | `CREDITO_CLIENTE`, `DEVOLUCAO`, `SEM_DEVOLUCAO` | `CancelamentoPedido` |
+| `TipoRetorno` | `DEVOLUCAO`, `SEM_DEVOLUCAO` | `CancelamentoPedido` |
 | `TipoNotificacao` | `ESTOQUE_BAIXO`, `DIA_LOTADO`, `RESUMO_INICIO_DIA`, `RESUMO_FIM_DIA`, `COMPRA_REGISTRADA`, `ALERTA_OPERACIONAL` (antes desta entrega: `ESTOQUE_BAIXO`, `PEDIDO_PROXIMO_ENTREGA`, `PAGAMENTO_PENDENTE`, `DIA_LOTADO`, `PEDIDO_ATRASADO`; os três sem geração foram removidos) | `Notificacao.tipo` |
 | `TipoPessoa` | `FISICA`, `JURIDICA` | `Cliente.tipoPessoa` |
 | `ClassificacaoCliente` | `PADRAO`, `FREQUENTE`, `ALTO_VOLUME` | `Cliente.classificacaoCliente` |
