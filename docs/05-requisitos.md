@@ -53,16 +53,16 @@ As histórias seguem o formato INVEST. O teste de aceitação de cada uma está 
 | # | Dimensão | Critério | Evidência exigida |
 |---|---|---|---|
 | 01 | Fluxo principal | Nota fiscal enviada pelo WhatsApp é processada e os insumos são cadastrados corretamente | Teste ponta a ponta com retorno do bot e registro no banco |
-| 02 | Desempenho | Inserção por foto em até 15 s e OCR com 100% de acerto nos campos obrigatórios de notas legíveis | Cronômetro e amostra de notas válidas |
+| 02 | Desempenho | Inserção por foto em até 15 s e pelo menos 90% dos itens lidos corretamente num conjunto de 20 a 30 fotos de notas legíveis | Cronômetro e planilha de acerto por item da amostra |
 | 03 | Regras de negócio | Alerta de estoque baixo, sinalização de excesso de pedidos e bloqueio da confirmação quando faltam insumos | Casos de teste com mensagens e quantidades |
-| 04 | Disponibilidade | Mensageria com uptime de 99,9%, sem mensagens perdidas | Monitoramento e logs |
-| 05 | Recuperação | Falhas críticas detectadas, corrigidas e restauradas em até 12 h. MTBF projetado de 6 meses | Registro de incidente, causa e tempo de restauração |
-| 06 | Uso e suporte | Interface responsiva em desktop e chatbot 24h | Roteiro de usabilidade e teste entre 390 e 1440 px |
+| 04 | Disponibilidade | Sistema 7 dias seguidos na máquina de entrega, com health checks verdes e reinício automático testado | Registro dos health checks e do teste de reinício |
+| 05 | Recuperação | Nenhuma falha crítica no período de teste e recuperação em até 15 min num ensaio com backup restaurado. MTBF de 6 meses como projeção | Registro do ensaio de restauração com o tempo medido |
+| 06 | Uso e suporte | Interface responsiva em desktop e assistente de WhatsApp disponível 24h para a operação da confeitaria (atende a dona: notas, estoque e avisos; não atende as clientes) | Roteiro de usabilidade, teste entre 390 e 1440 px e conversa de teste com o assistente |
 
 ## 5.5 Critérios de aprovação
 
 - **Gestão e funcionalidades:** processar fotos de nota fiscal e cadastrar insumos (WhatsApp, Twilio e Gemini); alertas automáticos de estoque baixo e de excesso de pedidos no mesmo dia; verificação de viabilidade no registro manual. Frequência: rotina diária.
-- **Suporte:** 100% de compatibilidade com navegadores mobile e desktop; execução inteira na web, com correções centralizadas; chatbot 24h na web e no mobile.
+- **Suporte:** 100% de compatibilidade com navegadores mobile e desktop; execução inteira na web, com correções centralizadas; assistente de WhatsApp 24h para a operação da confeitaria.
 
 ## 5.6 Requisitos levantados na visita técnica e no teste de usabilidade
 
