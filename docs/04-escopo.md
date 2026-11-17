@@ -126,4 +126,4 @@ flowchart LR
 | Sprint 3 | Mapeamento de endpoints, modelo de dados v4, tela de Login, acessibilidade de fonte, BPMN TO-BE, especificação dos indicadores, árvore de decisão do assistente, testes dos services |
 | Sprint 4 | Arquitetura hexagonal das integrações, três telas principais integradas à API, EAP, casos de uso, critérios de aceite, métricas de qualidade, diagramas de classes e de sequência |
 | Sprint 5 | Telas de Produção e Histórico, notificações e fonte acessível na interface, diagramas de contexto, contêineres e implantação, integração da prova de conceito ao banco |
-| Sprint 6 | Homologação com a confeiteira, manual do usuário e entrega final |
+| Sprint 6 | Manual de uso (em Markdown e PDF) e entrega final |

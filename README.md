@@ -6,7 +6,7 @@ Documentação do sistema de **gestão de pedidos, estoque e produção** da **D
 
 | | |
 |---|---|
-| **Para quem** | Doceterapia, confeitaria sob encomenda. Uma única usuária: a proprietária |
+| **Para quem** | Doceterapia, confeitaria sob encomenda. Dois perfis de acesso: a dona (DONA) e a funcionária (FUNCIONARIA) |
 | **Stack** | React 19 + Vite · Java 21 + Spring Boot 4 · MySQL 8 · (prova de conceito) Node + Twilio + Gemini |
 | **Repositórios** | [front-end](https://github.com/projeto-doceterapia/front-end) · [back-end](https://github.com/projeto-doceterapia/back-end) · [banco-de-dados](https://github.com/projeto-doceterapia/banco-de-dados) · [estoque-wpp](https://github.com/projeto-doceterapia/estoque-wpp) |
 
@@ -28,6 +28,7 @@ Documentação do sistema de **gestão de pedidos, estoque e produção** da **D
 | 12 | [Ferramentas de planejamento](docs/12-ferramentas-de-planejamento.md) | Equipe, cronograma (Gantt), responsabilidades, rituais, status report, GTD, retrospectivas |
 | 13 | [Links do projeto no Git](docs/13-links-git.md) | Repositórios, histórico, convenções, como executar |
 | 14 | [Referências bibliográficas](docs/14-referencias.md) | Mercado, métodos, modelagem e tecnologias |
+| 15 | [Manual de uso](docs/15-manual-de-uso/manual-de-uso.md) | Como ligar, usar e manter o sistema, em linguagem não técnica (versão em PDF: [manual-de-uso.pdf](docs/15-manual-de-uso/manual-de-uso.pdf)) |
 
 ### Arquitetura (seção 10)
 
