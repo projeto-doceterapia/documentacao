@@ -65,7 +65,7 @@ mindmap
 | PB10 | EP04 | Catálogo de produtos por categoria | Escopo | M | 3 | ✅ |
 | PB11 | EP04 | Ficha técnica (insumos por produto) editável no front | RN15 | S | 5 | 🟡 só leitura no front |
 | PB12 | EP04 | Calcular custo estimado e preço sugerido a partir da ficha técnica | Principal dor da confeiteira | M | 8 | ⛔ |
-| PB13 | EP05 | Tela de Estoque (CRUD de insumos e categorias) | US03, RF05 | M | 5 | ⛔ |
+| PB13 | EP05 | Tela de Estoque (CRUD de insumos e categorias) | US03, RF05 | M | 5 | ✅ tela de Estoque com insumos, categorias, saldo e movimentações |
 | PB14 | EP05 | Alerta de estoque baixo (Visão Geral e notificação `ESTOQUE_BAIXO`) | US03, RF07 | M | 3 | 🟡 geração automática de `ESTOQUE_BAIXO` implementada, em revisão (`back-end`) |
 | PB15 | EP05 | Baixa automática de insumos ao iniciar a produção | RF06, RN24 | S | 8 | ⛔ |
 | PB16 | EP05 | Verificar viabilidade e bloquear a confirmação quando faltar insumo | RF08, RN23, CA03 | S | 8 | ⛔ |
@@ -82,11 +82,11 @@ mindmap
 | PB27 | EP09 | Login e logout com JWT em cookie | RNF06 | M | 5 | ✅ API · 🟡 front |
 | PB28 | EP09 | Proteger as rotas de domínio e separar perfis `local` e `prod` | D01, D02 | M | 3 | ⛔ |
 | PB29 | EP10 | Aumentar e reduzir fonte | Visita técnica | M | 2 | ✅ |
-| PB30 | EP10 | Chatbot de ajuda 24h (árvore de decisão no Botpress) | CA06 | C | 8 | 🟡 desenho |
+| PB30 | EP10 | Chatbot de ajuda 24h (árvore de decisão no Botpress) | Histórico | C | 8 | Substituído pelo assistente de WhatsApp (PB25) para o CA06; desenho no Botpress mantido como histórico |
 | PB31 | EP10 | Busca unificada de pedidos, clientes e produtos | RF10 | C | 5 | 🟡 |
 | PB32 | — | Log de auditoria de pedidos | RF11 | C | 5 | ⛔ |
 | PB33 | — | Alinhar `scriptv4.sql`, `.mwb` e entidades JPA | D10 | M | 5 | ⛔ |
-| PB34 | — | Testes no front-end (Vitest) e de controller e repositório no back-end | D14 | S | 8 | ⛔ |
+| PB34 | — | Testes no front-end (Vitest) e de controller e repositório no back-end | D14 | S | 8 | 🟡 front-end com Vitest; back-end com testes de controller e de repositório em parte das rotas |
 | PB35 | — | Programa de fidelidade (recompensas) | Estudo de fidelização | W | — | — |
 | PB36 | — | Funil de vendas (Pipefy) | Alinhamento com a confeiteira | W | — | Descartado |
 
